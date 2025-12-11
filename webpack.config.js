@@ -3,8 +3,7 @@ const { MODE } = require( './config/types' );
 
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
-
-// check module and plugins list
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = ( env, argv ) => {
     const isProduction = argv.mode === MODE.PROD;
@@ -95,6 +94,13 @@ module.exports = ( env, argv ) => {
             new HtmlWebpackPlugin( {
                 template: './public/index.html',
             } ),
+            new ESLintPlugin({
+                extensions: ['ts', 'tsx'],
+                context: './src',
+                emitWarning: false,
+                failOnError: true,
+                fix: true,
+            }),
             ...(isProduction ? [new MiniCssExtractPlugin( {
                 filename: '[name].[contenthash].css',
             } )] : []),
