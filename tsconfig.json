@@ -13,8 +13,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,  // CRITICAL: must be false for webpack
-    "jsx": "react-jsx"
+    "noEmit": false, // CRITICAL: must be false for webpack
+    "jsx": "react-jsx",
+    "baseUrl": ".", // ✅ Абсолютный от корня проекта
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"],
+      "@pages/*": ["src/pages/*"],
+      "@services/*": ["src/services/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@store/*": ["app/store/*"], // Для Redux
+      "@api/*": ["services/api/*"], // Для API утилит
+      "@types/*": ["shared/types/*"], // Глобальные типы
+      "@styles/*": ["shared/styles/*"] // SCSS импорты
+    }
   },
   "include": ["src"]
 }
