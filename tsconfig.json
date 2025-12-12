@@ -17,13 +17,13 @@
     "jsx": "react-jsx",
     "baseUrl": ".", // ✅ Абсолютный от корня проекта
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@features/*": ["src/features/*"],
-      "@shared/*": ["src/shared/*"],
-      "@pages/*": ["src/pages/*"],
-      "@services/*": ["src/services/*"],
-      "@assets/*": ["src/assets/*"],
-      "@config/*": ["src/config/*"],
+      "@app/*": ["app/*"],
+      "@pages/*": ["pages/*"],
+      "@features/*": ["features/*"],
+      "@shared/*": ["shared/*"],
+      "@services/*": ["services/*"],
+      "@assets/*": ["assets/*"],
+      "@config/*": ["config/*"],
       "@store/*": ["app/store/*"], // Для Redux
       "@api/*": ["services/api/*"], // Для API утилит
       "@types/*": ["shared/types/*"], // Глобальные типы

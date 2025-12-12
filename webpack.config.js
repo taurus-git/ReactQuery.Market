@@ -90,13 +90,13 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
       alias: {
-        '@app': path.resolve(__dirname, 'src/app'),
-        '@features': path.resolve(__dirname, 'src/features'),
-        '@shared': path.resolve(__dirname, 'src/shared'),
-        '@pages': path.resolve(__dirname, 'src/pages'),
-        '@services': path.resolve(__dirname, 'src/services'),
-        '@assets': path.resolve(__dirname, 'src/assets'),
-        '@config': path.resolve(__dirname, 'src/config'),
+        '@app': path.resolve(__dirname, 'app'),
+        '@pages': path.resolve(__dirname, 'pages'),
+        '@features': path.resolve(__dirname, 'features'),
+        '@shared': path.resolve(__dirname, 'shared'),
+        '@services': path.resolve(__dirname, 'services'),
+        '@assets': path.resolve(__dirname, 'assets'),
+        '@config': path.resolve(__dirname, 'config'),
         '@store': path.resolve(__dirname, 'app/store'),
         '@api': path.resolve(__dirname, 'services/api/'),
         '@types': path.resolve(__dirname, 'shared/types/'),
@@ -123,6 +123,7 @@ module.exports = (env, argv) => {
         : []),
     ],
     devServer: {
+      historyApiFallback: true,
       static: {
         directory: path.resolve(__dirname, 'dist'),
       },
