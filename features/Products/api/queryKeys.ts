@@ -1,10 +1,14 @@
-import { ProductFilter } from '../types/products.types';
+import { createBaseQueryKeys } from '@shared/lib/createBaseQueryKeys';
+import { CategoryProductsParams } from '@features/Products/types';
+import { QUERY_DOMAINS } from '@shared/constants/queryDomains';
+
+const productsBase = createBaseQueryKeys(QUERY_DOMAINS.products);
 
 export const productsKeys = {
-  all: ['products'] as const,
-  lists: () => [...productsKeys.all, 'list'] as const,
-  list: (filters: ProductFilter) => [...productsKeys.lists(), filters] as const,
+  ...productsBase,
+} as const;
 
-  details: () => [...productsKeys.all, 'detail'] as const,
-  detail: (id: string) => [...productsKeys.details(), id] as const,
+export const categoryProductsKeys = {
+  list: (params: CategoryProductsParams) =>
+    [QUERY_DOMAINS.categories, params.slug, QUERY_DOMAINS.products] as const,
 } as const;
