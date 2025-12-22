@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { categoryKeys, fetchCategory } from '../api';
+import { categoryKeys } from '../api/queryKeys';
+import { fetchCategory } from '../api/categoriesApi';
 
 export const useCategory = (slug: string) => {
   return useQuery({

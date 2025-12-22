@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { categoryProductsKeys, fetchCategoryProducts } from '../api';
-import { CategoryProductsParams } from '@features/Products/types';
+import { categoryProductsKeys } from '../api/queryKeys';
+import { fetchCategoryProducts } from '../api/productsApi';
+import { CategoryProductsParams } from '@features/Products/types/categories.types';
 import { TIME } from '@shared/types/time.types';
 
 export const useCategoryProducts = (params: CategoryProductsParams) => {

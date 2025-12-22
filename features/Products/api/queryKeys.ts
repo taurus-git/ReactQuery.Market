@@ -1,5 +1,5 @@
 import { createBaseQueryKeys } from '@shared/lib/createBaseQueryKeys';
-import { CategoryProductsParams } from '@features/Products/types';
+import { CategoryProductsParams } from '@features/Products/types/categories.types';
 import { QUERY_DOMAINS } from '@shared/constants/queryDomains';
 
 const productsBase = createBaseQueryKeys(QUERY_DOMAINS.products);
