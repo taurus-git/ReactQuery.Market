@@ -17,6 +17,7 @@ export const HomePage = () => {
   return (
     <div>
       <h4>HomePage</h4>
+      <SingleProductPage />
       {/*    <QueryState isLoading={isLoading} isError={isError}>
               {data && <ProductGrid data={data} />}
       </QueryState>*/}
