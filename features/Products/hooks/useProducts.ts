@@ -7,5 +7,7 @@ export const useProducts = () => {
   return useQuery({
     queryKey: productsKeys.lists(),
     queryFn: () => fetchProducts(),
+    staleTime: TIME.FIVE_MINUTES,
+    refetchOnWindowFocus: true,
   });
 };
