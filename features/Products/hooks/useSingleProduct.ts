@@ -9,5 +9,6 @@ export const useSingleProduct = (id: number) => {
     queryFn: () => fetchSingleProduct(id),
     enabled: !!id,
     staleTime: TIME.HOUR,
+    refetchOnMount: true,
   });
 };
