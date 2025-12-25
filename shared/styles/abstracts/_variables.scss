@@ -1,0 +1,38 @@
+:root {
+  /*Colors*/
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-grey: #828B8D;
+  --color-gray: #CED4D7;
+  --color-light-gray: #F2F2F2;
+  --color-green: #219653;
+  --color-red: #EB5757;
+
+  /*Typography*/
+  --font-manrope: 'Manrope', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 1.2rem; /* 12px - badges, footnotes */
+  --font-size-sm: 1.4rem; /* 14px - secondary text */
+  --font-size-base: 1.6rem; /* 16px - body text */
+  --font-size-lg: 1.8rem; /* 18px - buttons, cards */
+  --font-size-xl: 2rem; /* 20px - h5, prices */
+
+  --font-size-2xl: 1.7rem; /* 24px - h4, product titles */
+  --font-size-3xl: 1.8rem; /* h3 */
+  --font-size-4xl: 2.1rem; /* h2 */
+  --font-size-5xl: 2.6rem; /* h1 */
+
+  /*Animations & Transitions*/
+  --transition-instant: 0ms;
+  --transition-fast: 150ms; /* Кнопки, hover */
+  --transition-normal: 250ms; /* Карточки, модалки */
+  --transition-slow: 400ms; /* Hero, большие элементы */
+
+  /* Easing functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}

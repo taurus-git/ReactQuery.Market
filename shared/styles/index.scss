@@ -1,0 +1,7 @@
+//@forward 'abstracts/variables';
+@import './base/_normalize.css';
+@forward './base/typography.scss';
+@forward './_globals';
+@forward 'abstracts/mixins';
+
+@use 'abstracts' as *;

@@ -1,0 +1,147 @@
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-manrope);
+  font-weight: var(--font-weight-regular);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast),
+  transform var(--transition-fast),
+  box-shadow var(--transition-fast);
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@mixin btn-size($padding-y, $padding-x, $min-height: null, $width: null) {
+  padding: $padding-y $padding-x;
+  @if $min-height {
+    min-height: $min-height;
+  }
+  @if $width {
+    width: $width;
+  }
+}
+
+@mixin btn-font(
+  $font-size: var(--font-size-base),
+  $line-height: 1.5,
+  $font-weight: var(--font-weight-medium)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+@mixin btn-color($bg, $color, $hover-color: null) {
+  background-color: $bg;
+  color: $color;
+
+  &:hover:not(:disabled) {
+    @if $hover-color {
+      color: $hover-color;
+    } @else {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+@mixin btn-border($width: 1px, $style: solid, $color: null ) {
+  border-width: $width;
+  border-style: $style;
+
+  @if $color != null {
+    border-color: $color;
+  }
+}
+
+/*Button classes*/
+.btn {
+  @include btn-base;
+}
+
+/*Sizes*/
+.btn--size-md {
+  @include btn-size(1rem, 1rem, 5rem, 100%);
+}
+
+.btn--size-lg {
+  @include btn-size(2.5rem, 2.5rem, 7rem, 100%);
+}
+
+/*Fonts*/
+.btn--font-md {
+  @include btn-font(var(--font-size-base), 3rem);
+}
+
+.btn--font-lg {
+  @include btn-font(var(--font-size-lg), 2rem);
+  text-transform: uppercase;
+}
+
+/*Colors*/
+/*black and white*/
+.btn--dark {
+  @include btn-color(var(--color-black), var(--color-white), var(--color-dark-grey));
+  @include btn-border(1px, solid, var(--color-black));
+
+  &:disabled {
+    color: var(--color-dark-grey);
+    background-color: var(--color-gray);
+    @include btn-border(1px, solid, var(--color-gray));
+  }
+}
+
+.btn--light {
+  @include btn-color(var(--color-white), var(--color-black), var(--color-dark-grey));
+  @include btn-border(1px, solid, var(--color-black));
+
+  &:disabled {
+    color: var(--color-gray);
+    background-color: var(--color-white);
+    @include btn-border(1px, solid, var(--color-gray));
+  }
+}
+
+/*red and white*/
+.btn--cta-dark {
+  @include btn-color(var(--color-red), var(--color-white), var(--color-gray));
+  @include btn-border(1px, solid, var(--color-red));
+
+  &:disabled {
+    color: var(--color-dark-grey);
+    background-color: var(--color-gray);
+    @include btn-border(1px, solid, var(--color-gray));
+  }
+}
+
+.btn--cta-light {
+  @include btn-color(var(--color-white), var(--color-red), var(--color-dark-grey));
+  @include btn-border(1px, solid, var(--color-red));
+
+  &:disabled {
+    color: var(--color-gray);
+    background-color: var(--color-white);
+    @include btn-border(1px, solid, var(--color-gray));
+  }
+}
