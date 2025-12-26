@@ -3,12 +3,11 @@ import { AppRoutes } from '@app/router/routes';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { MODE } from '@config/types';
 //import styles from './App.module.scss';
 
 function App() {
   const queryClient = new QueryClient();
-  const Router = process.env.NODE_ENV === MODE.PROD ? HashRouter : BrowserRouter;
+  const Router = __DEV__ ? BrowserRouter : HashRouter;
 
   return (
     <Router>

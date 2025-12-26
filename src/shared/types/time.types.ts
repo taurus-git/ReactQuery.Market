@@ -8,5 +8,3 @@ export const TIME = {
   NEVER: Infinity,
   INSTANT: 0,
 } as const;
-
-export type TIME = (typeof TIME)[keyof typeof TIME];

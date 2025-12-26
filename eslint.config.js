@@ -6,39 +6,49 @@ import prettier from 'eslint-plugin-prettier';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
-    { ignores: ['dist/**', 'node_modules/**'] },
-    {
-        files: ['src/**/*.{ts,tsx}'],
-        languageOptions: {
-            parser: tsParser,
-            parserOptions: {
-                project: './tsconfig.json',
-                tsconfigRootDir: import.meta.dirname,
-            },
-            globals: {
-                document: 'readonly',
-                window: 'readonly',
-                console: 'readonly',
-                navigator: 'readonly',
-                browser: true,
-                es2021: true,
-            },
-        },
-        plugins: {
-            '@typescript-eslint': ts,
-            'react-hooks': reactHooks,
-            prettier,
-            'react-refresh': reactRefresh,
-        },
-        rules: {
-            ...js.configs.recommended.rules,
-            ...ts.configs.recommended.rules,
-            'react-refresh/only-export-components': 'warn',
-            'prettier/prettier': 'error',
-            '@typescript-eslint/no-unused-vars': 'error',
-        },
-        settings: {
-            react: { version: 'detect' },
-        },
+  { ignores: ['src/dist/**', 'node_modules/**'] },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        console: 'readonly',
+        navigator: 'readonly',
+        require: 'readonly',
+        browser: true,
+        es2021: true,
+        __DEV__: 'readonly',
+        __PROD__: 'readonly',
+      },
     },
+    plugins: {
+      '@typescript-eslint': ts,
+      'react-hooks': reactHooks,
+      prettier,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...ts.configs.recommended.rules,
+      'react-refresh/only-export-components': 'warn',
+      'prettier/prettier': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
+    },
+    settings: {
+      react: { version: 'detect' },
+    },
+  },
+  {
+    files: ['**/sprite.ts'],
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off',
+      'no-undef': 'off',
+    },
+  },
 ];

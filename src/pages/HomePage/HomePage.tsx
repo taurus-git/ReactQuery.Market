@@ -1,11 +1,12 @@
 import React from 'react';
-import { QueryState } from '@shared/ui/QueryState/QueryState';
+/*import { QueryState } from '@shared/ui/QueryState/QueryState';
 import { useCategoryProducts } from '@features/Products/hooks/useCategoryProducts';
 import { ProductGrid } from '@features/Products/components/ProductGrid/ProductGrid';
 import { useCategories } from '@features/Products/hooks/useCategories';
 import { useCategory } from '@features/Products/hooks/useCategory';
 import { useProducts } from '@features/Products/hooks/useProducts';
-import { useSingleProduct } from '@features/Products/hooks/useSingleProduct';
+import { useSingleProduct } from '@features/Products/hooks/useSingleProduct';*/
+import { Icon } from '@shared/ui/Icon/Icon';
 
 export const HomePage = () => {
   //const { data, isLoading, isError } = useProducts();
@@ -43,6 +44,13 @@ export const HomePage = () => {
         Click me
       </button>
 
+      <h2>Icons</h2>
+      <button>
+        <Icon name="account" size={24} color="var(--color-red)" />
+      </button>
+      <button>
+        <Icon name="star" size={24} />
+      </button>
       {/*    <QueryState isLoading={isLoading} isError={isError}>
               {data && <ProductGrid data={data} />}
       </QueryState>*/}

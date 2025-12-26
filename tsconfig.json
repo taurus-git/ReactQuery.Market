@@ -17,17 +17,17 @@
     "jsx": "react-jsx",
     "baseUrl": ".", // ✅ Абсолютный от корня проекта
     "paths": {
-      "@app/*": ["app/*"],
-      "@pages/*": ["pages/*"],
-      "@features/*": ["features/*"],
-      "@shared/*": ["shared/*"],
-      "@services/*": ["services/*"],
-      "@assets/*": ["assets/*"],
-      "@config/*": ["config/*"],
-      "@store/*": ["app/store/*"], // Для Redux
-      "@api/*": ["services/api/*"], // Для API утилит
-      "@types/*": ["shared/types/*"], // Глобальные типы
-      "@styles/*": ["shared/styles/*"] // SCSS импорты
+      "@app/*": ["src/app/*"],
+      "@pages/*": ["src/pages/*"],
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"],
+      "@services/*": ["src/services/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@store/*": ["src/app/store/*"], // Для Redux
+      "@api/*": ["src/services/api/*"], // Для API утилит
+      "@types/*": ["src/shared/types/*"], // Глобальные типы
+      "@styles/*": ["src/shared/styles/*"] // SCSS импорты
     }
   },
   "include": ["src"]
