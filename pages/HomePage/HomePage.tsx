@@ -11,11 +11,38 @@ export const HomePage = () => {
   //const { data, isLoading, isError } = useProducts();
   //const { data, isLoading, isError } = useCategoryProducts({ slug: 'smartphones' });
   /*const { data } = useCategory('groceries');*/
-  const { data, isLoading, isError } = useSingleProduct(5);
-  console.log(data);
+  //const { data, isLoading, isError } = useSingleProduct(5);
   return (
     <div>
-      <h4>HomePage</h4>
+      <h1 style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-manrope-regular)' }}>
+        HomePage
+      </h1>
+      <h2>Black and white</h2>
+      <button className="btn btn--size-md btn--font-md btn--dark">Click me</button>
+      <p>1</p>
+      <button disabled={true} className="btn btn--size-md btn--font-md btn--dark">
+        Click me
+      </button>
+      <p>1111</p>
+      <button className="btn btn--size-md btn--font-md btn--light">Click me</button>
+      <p>1</p>
+      <button disabled={true} className="btn btn--size-md btn--font-md btn--light">
+        Click me
+      </button>
+
+      <h2>Red and white</h2>
+      <button className="btn btn--size-lg btn--font-lg btn--cta-dark">Click me</button>
+      <p>1</p>
+      <button disabled={true} className="btn btn--size-lg btn--font-lg btn--cta-dark">
+        Click me
+      </button>
+      <p>111</p>
+      <button className="btn btn--size-lg btn--font-lg btn--cta-light">Click me</button>
+      <p>1</p>
+      <button disabled={true} className="btn btn--size-lg btn--font-lg btn--cta-light">
+        Click me
+      </button>
+
       {/*    <QueryState isLoading={isLoading} isError={isError}>
               {data && <ProductGrid data={data} />}
       </QueryState>*/}

@@ -16,7 +16,7 @@ module.exports = (env, argv) => {
       clean: true,
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
-      publicPath: '/',
+      publicPath: isProduction ? './' : '/',
     },
     module: {
       rules: [
@@ -75,7 +75,16 @@ module.exports = (env, argv) => {
             isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
             'css-loader',
             'postcss-loader',
-            'sass-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sassOptions: {
+                  includePaths: [
+                    path.resolve(__dirname, 'shared/styles'), // ✅ КРИТИЧНО!
+                  ],
+                },
+              },
+            },
           ],
         },
         {
