@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { MainLayout } from '@shared/layout/MainLayout';
 import { ROUTES } from './constants';
+import '@shared/ui/Icon/sprite';
 
 const Home = lazy(() => import('@pages/HomePage'));
 const Products = lazy(() => import('@pages/ProductsPage'));

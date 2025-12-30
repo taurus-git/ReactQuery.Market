@@ -18,9 +18,10 @@ export const Icon: React.FC<IconProps> = ({
     className={`${styles.icon} ${className}`}
     width={size}
     height={size}
-    fill={color}
+    viewBox="0 0 16 16"
+    style={{ color }}
     aria-hidden
   >
-    <use xlinkHref={`/icons/sprite.svg#${name}`} />
+    <use href={`/icons/sprite.svg#${name}`} />
   </svg>
 );

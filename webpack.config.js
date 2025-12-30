@@ -105,9 +105,7 @@ module.exports = (env, argv) => {
               loader: 'svg-sprite-loader',
               options: {
                 extract: true,
-                spriteFilename: isProduction
-                  ? 'icons/sprite.[contenthash:8].svg'
-                  : 'icons/sprite.svg',
+                spriteFilename: 'icons/sprite.svg',
                 symbolId: '[name]',
                 esModule: false,
               },
