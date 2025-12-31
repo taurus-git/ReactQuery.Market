@@ -1,27 +1,26 @@
+@use '@styles/abstracts/mixins' as *;
+
 .checkbox {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  cursor: pointer;
+  @include gap(1rem, 0);
+  position: relative;
   line-height: 1.6;
-}
-
-.checkboxInput {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  margin: 0;
+  cursor: pointer;
 
   &:hover {
-    & ~ .checkboxLabel {
+    .checkboxLabel {
       color: var(--color-dark-grey);
     }
 
-    & ~ .checkboxCount {
+    .checkboxCount {
       font-weight: var(--font-weight-regular);
     }
   }
+}
+
+.checkboxInput {
+  @include visually-hidden();
 
   &:checked {
     & ~ .checkboxCustom::after {
@@ -30,7 +29,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.07573 8.7728L0.175729 4.8728C-0.0585762 4.63849 -0.0585762 4.25859 0.175729 4.02426L1.02424 3.17573C1.25854 2.9414 1.63846 2.9414 1.87277 3.17573L4.5 5.80294L10.1272 0.175729C10.3615 -0.0585762 10.7415 -0.0585762 10.9758 0.175729L11.8243 1.02426C12.0586 1.25857 12.0586 1.63846 11.8243 1.87279L4.92426 8.77282C4.68994 9.00713 4.31004 9.00713 4.07573 8.7728Z' fill='white'/%3E%3C/svg%3E%0A") center / 10px 8px no-repeat;;
+      background: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.07573 8.7728L0.175729 4.8728C-0.0585762 4.63849 -0.0585762 4.25859 0.175729 4.02426L1.02424 3.17573C1.25854 2.9414 1.63846 2.9414 1.87277 3.17573L4.5 5.80294L10.1272 0.175729C10.3615 -0.0585762 10.7415 -0.0585762 10.9758 0.175729L11.8243 1.02426C12.0586 1.25857 12.0586 1.63846 11.8243 1.87279L4.92426 8.77282C4.68994 9.00713 4.31004 9.00713 4.07573 8.7728Z' fill='white'/%3E%3C/svg%3E%0A") center / 10px 8px no-repeat;
       pointer-events: none;
       width: 1rem;
       height: 1rem;
@@ -45,6 +44,14 @@
       font-weight: var(--font-weight-bold);
       color: var(--color-black);
     }
+  }
+
+  &:focus ~ .checkboxCustom {
+    @include outline(var(--color-red))
+  }
+
+  &:focus:not(:focus-visible) ~ .checkboxCustom {
+    @include outline-none();
   }
 
   &:disabled {
@@ -70,17 +77,13 @@
     width: 1.6rem;
     height: 1.6rem;
     color: var(--color-bg-primary);
-    transition: var(--ease-in-out);
+    transition: transform .2s var(--ease-in-out), opacity .2s var(--ease-in-out);
   }
 }
 
 .checkboxLabel {
   flex-grow: 1;
   font-weight: var(--font-weight-medium);
-
-  &:checked {
-    font-weight: var(--font-weight-bold);
-  }
 }
 
 .checkboxCount {

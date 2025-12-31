@@ -20,9 +20,7 @@ export const HomePage = () => {
   const value = '';
   return (
     <div>
-      <h1 style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-manrope-regular)' }}>
-        HomePage
-      </h1>
+      <h1>HomePage</h1>
       {/*<h2>Black and white</h2>
       <button className="btn btn--size-md btn--font-md btn--dark">Click me</button>
       <p>1</p>

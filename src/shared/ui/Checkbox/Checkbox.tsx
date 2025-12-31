@@ -22,12 +22,12 @@ export const Checkbox = ({ checked, label, onChange, children, ...inputProps }: 
         onChange={(e) => onChange?.(e.target.checked, e)}
         {...inputProps}
       ></input>
-      <div className={styles.checkboxCustom}>
+      <span className={styles.checkboxCustom}>
         <Icon
           name={checked ? 'circle_filled' : 'circle'}
           color={checked ? 'var(--color-red)' : 'var(--color-black)'}
         />
-      </div>
+      </span>
 
       {label && <span className={styles.checkboxLabel}>{label}</span>}
       {children && <span className={styles.checkboxCount}>{children}</span>}

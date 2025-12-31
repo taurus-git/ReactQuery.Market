@@ -1,0 +1,14 @@
+@mixin gap($row-gap, $col-gap: $row-gap) {
+  @supports not (gap: 0) {
+    > * {
+      &:not(:last-child) {
+        margin-right: $col-gap;
+        margin-bottom: $row-gap;
+      }
+    }
+  }
+
+  @supports (gap: 0) {
+    gap: #{$row-gap} #{$col-gap};
+  }
+}
