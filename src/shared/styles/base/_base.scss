@@ -37,6 +37,15 @@ legend {
   cursor: pointer;
 }
 
+.container {
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding-right: var(--spacing-2x);
+  padding-left: var(--spacing-2x);
+  box-sizing: border-box;
+}
+
 .text-uppercase {
   text-transform: uppercase;
 }

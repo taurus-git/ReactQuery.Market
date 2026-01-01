@@ -82,20 +82,20 @@
 
 /*Sizes*/
 .btn--size-md {
-  @include btn-size(1rem, 1rem, 5rem, 100%);
+  @include btn-size(var(--spacing-1x), var(--spacing-1x), var(--spacing-5x), 100%);
 }
 
 .btn--size-lg {
-  @include btn-size(2.5rem, 2.5rem, 7rem, 100%);
+  @include btn-size(var(--spacing-2-5x), var(--spacing-2-5x), var(--spacing-7x), 100%);
 }
 
 /*Fonts*/
 .btn--font-md {
-  @include btn-font(var(--font-size-base), 3rem);
+  @include btn-font(var(--font-size-base), var(--spacing-3x));
 }
 
 .btn--font-lg {
-  @include btn-font(var(--font-size-lg), 2rem);
+  @include btn-font(var(--font-size-lg), var(--spacing-2x));
   text-transform: uppercase;
 }
 
