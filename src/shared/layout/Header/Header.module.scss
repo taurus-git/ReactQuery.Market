@@ -1,11 +1,10 @@
+.header {
+  min-height: 6rem;
+}
+
 nav {
-  position: fixed;
   width: 50%;
   height: 100vh;
   z-index: 15;
   background-color: var(--color-white);
-}
-
-.headerMain {
-
 }

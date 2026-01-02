@@ -1,10 +1,8 @@
 @use '@styles/abstracts/mixins' as *;
 
 .checkbox {
-  display: flex;
   align-items: center;
   @include gap(var(--spacing-1x), 0);
-  position: relative;
   line-height: 1.6;
   cursor: pointer;
 
@@ -64,16 +62,11 @@
 }
 
 .checkboxCustom {
-  position: relative;
   flex-shrink: 0;
   width: 1.6rem;
   height: 1.6rem;
 
   svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 1.6rem;
     height: 1.6rem;
     color: var(--color-bg-primary);

@@ -9,7 +9,7 @@ interface MenuButtonProps {
 
 export const MenuButton = ({ isOpen, onToggle }: MenuButtonProps) => {
   return (
-    <button className={styles.menuButton} onClick={onToggle}>
+    <button className={`position-absolute ${styles.menuButton}`} onClick={onToggle}>
       <Icon name={isOpen ? 'close' : 'menu'} />
     </button>
   );

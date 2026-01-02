@@ -18,6 +18,10 @@ body {
   color: var(--color-black);
 }
 
+html, body {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -55,17 +59,4 @@ button {
 
 ol, ul {
   list-style: none;
-}
-
-.container {
-  width: 100%;
-  max-width: 140rem;
-  margin: 0 auto;
-  padding-right: var(--spacing-2x);
-  padding-left: var(--spacing-2x);
-  box-sizing: border-box;
-}
-
-.text-uppercase {
-  text-transform: uppercase;
 }

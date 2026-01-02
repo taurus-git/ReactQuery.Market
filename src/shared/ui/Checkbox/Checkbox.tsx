@@ -14,7 +14,7 @@ interface CheckboxProps extends Omit<
 
 export const Checkbox = ({ checked, label, onChange, children, ...inputProps }: CheckboxProps) => {
   return (
-    <label className={`${styles.checkbox}`}>
+    <label className={`d-flex position-relative ${styles.checkbox}`}>
       <input
         type="checkbox"
         checked={checked}
@@ -22,10 +22,11 @@ export const Checkbox = ({ checked, label, onChange, children, ...inputProps }: 
         onChange={(e) => onChange?.(e.target.checked, e)}
         {...inputProps}
       ></input>
-      <span className={styles.checkboxCustom}>
+      <span className={`position-relative ${styles.checkboxCustom}`}>
         <Icon
           name={checked ? 'circle_filled' : 'circle'}
           color={checked ? 'var(--color-red)' : 'var(--color-black)'}
+          className={`absolute-center`}
         />
       </span>
 

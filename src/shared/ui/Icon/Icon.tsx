@@ -15,7 +15,7 @@ export const Icon: React.FC<IconProps> = ({
   className = '',
 }) => (
   <svg
-    className={`${styles.icon} ${className}`}
+    className={`d-inline-block ${styles.icon} ${className}`}
     width={size}
     height={size}
     viewBox="0 0 16 16"

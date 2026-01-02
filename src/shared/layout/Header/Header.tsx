@@ -16,19 +16,21 @@ export const Header = () => {
 
   return (
     <header>
-      {isMenuOpen && (
-        <>
-          <Overlay onClose={closeMenu} />
-          <nav>
-            <MobileMenu onClose={closeMenu} />
-          </nav>
-        </>
-      )}
-      <Container>
-        <div className={styles.headerMain}>
-          <MenuButton isOpen={isMenuOpen} onToggle={toggleMenu} />
-        </div>
-      </Container>
+      <div className={styles.header}>
+        {isMenuOpen && (
+          <>
+            <Overlay onClose={closeMenu} />
+            <nav className={'position-fixed'}>
+              <MobileMenu onClose={closeMenu} />
+            </nav>
+          </>
+        )}
+        <Container>
+          <div className={`d-flex`}>
+            <MenuButton isOpen={isMenuOpen} onToggle={toggleMenu} />
+          </div>
+        </Container>
+      </div>
     </header>
   );
 };
