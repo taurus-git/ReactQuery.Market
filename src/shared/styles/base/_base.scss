@@ -18,6 +18,11 @@ body {
   color: var(--color-black);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 fieldset {
   margin: 0;
   padding: 0;
@@ -35,6 +40,21 @@ legend {
   position: relative;
   display: inline-block;
   cursor: pointer;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ol, ul {
+  list-style: none;
 }
 
 .container {
