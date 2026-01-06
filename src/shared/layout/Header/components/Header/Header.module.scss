@@ -1,3 +1,9 @@
+@use '@styles/abstracts/mixins' as *;
+
 .header {
   min-height: var(--spacing-6x);
+
+  @include mq(md) {
+    min-height: 9.4rem;
+  }
 }

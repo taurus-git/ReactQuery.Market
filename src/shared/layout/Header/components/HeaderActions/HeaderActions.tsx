@@ -8,10 +8,26 @@ import { SearchButton } from '@features/Search/components/SearchButton/SearchBut
 export const HeaderActions = () => {
   return (
     <div className={`d-flex justify-end flex-wrap ${styles.headerActions}`}>
-      <AccountButton className={`${styles.userNavIcon}`} />
-      <FavoritesButton className={`${styles.userNavIcon}`} />
-      <CartButton />
-      <SearchButton className={`${styles.userNavIcon}`} />
+      <AccountButton
+        className={`d-none flex-column align-center ${styles.userNavIcon} ${styles.account}`}
+      >
+        <span className={styles.label}>Войти</span>
+      </AccountButton>
+      <FavoritesButton
+        className={`d-none flex-column align-center ${styles.userNavIcon} ${styles.favorites}`}
+      >
+        <span className={styles.label}>Избранное</span>
+      </FavoritesButton>
+      <CartButton
+        className={`d-flex flex-column align-center ${styles.userNavIcon} ${styles.cart}`}
+      >
+        <span className={styles.label}>Корзина</span>
+      </CartButton>
+      <SearchButton
+        className={`d-none flex-column align-center ${styles.userNavIcon} ${styles.search}`}
+      >
+        <span className={styles.label}>Поиск</span>
+      </SearchButton>
     </div>
   );
 };
