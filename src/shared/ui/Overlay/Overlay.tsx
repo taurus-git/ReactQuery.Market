@@ -6,5 +6,7 @@ interface OverlayProps {
 }
 
 export const Overlay = ({ onClose }: OverlayProps) => {
-  return <div onClick={onClose} className={`d-block position-fixed ${styles.overlay}`}></div>;
+  return (
+    <div onClick={onClose} className={`d-block position-fixed full-size ${styles.overlay}`}></div>
+  );
 };

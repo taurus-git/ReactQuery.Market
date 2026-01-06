@@ -1,0 +1,9 @@
+@use '@styles/abstracts/mixins' as *;
+
+.navigation {
+  display: none;
+  @include mq(md) {
+    display: flex;
+    @include gap(var(--spacing-2-5x), var(--spacing-2-5x));
+  }
+}

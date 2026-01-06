@@ -6,5 +6,5 @@ interface LegendProps {
 }
 
 export const Legend = ({ children }: LegendProps) => {
-  return <legend className={styles.legend}>{children}</legend>;
+  return <legend className={`fw-medium ${styles.legend}`}>{children}</legend>;
 };

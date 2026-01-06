@@ -1,3 +1,21 @@
 .text-uppercase {
   text-transform: uppercase;
 }
+
+.fw-normal {
+  font-weight: var(--font-weight-regular);
+}
+
+.fw-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.fw-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-thickness: 2px;
+}

@@ -30,8 +30,8 @@ export const Checkbox = ({ checked, label, onChange, children, ...inputProps }: 
         />
       </span>
 
-      {label && <span className={styles.checkboxLabel}>{label}</span>}
-      {children && <span className={styles.checkboxCount}>{children}</span>}
+      {label && <span className={`fw-medium ${styles.checkboxLabel}`}>{label}</span>}
+      {children && <span className={`fw-bold ml-auto ${styles.checkboxCount}`}>{children}</span>}
     </label>
   );
 };

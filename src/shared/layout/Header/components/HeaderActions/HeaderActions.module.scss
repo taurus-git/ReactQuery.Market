@@ -1,0 +1,18 @@
+@use '@styles/abstracts/mixins' as *;
+
+.headerActions {
+  flex: 1;
+  min-width: 0;
+
+  @include gap(var(--spacing-2-5x));
+
+  .userNavIcon {
+    display: none;
+  }
+
+  @include mq(md) {
+    .userNavIcon {
+      display: inline-block;
+    }
+  }
+}

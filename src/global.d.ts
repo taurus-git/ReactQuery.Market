@@ -24,6 +24,11 @@ declare module '*.svg' {
   export default SVG;
 }
 
+declare module '*.png' {
+  const src: string;
+  export default src;
+}
+
 declare const __DEV__: boolean;
 declare const __PROD__: boolean;
 
