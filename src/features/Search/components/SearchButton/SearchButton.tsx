@@ -10,7 +10,7 @@ export const SearchButton = ({ className, children }: SearchButtonProps) => {
   return (
     <button className={className}>
       <Icon name={'search'} />
-      {children}
+      {children && <span className={'headerActions__label'}>{children}</span>}
     </button>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-//import styles from '/Cart.module.scss';
 import { Icon } from '@shared/ui/Icon/Icon';
 
 interface CartProps {
