@@ -3,7 +3,7 @@ import { AppRoutes } from '@app/router/routes';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-//import styles from './App.module.scss';
+import { CitySelectorProvider } from '@features/DeliveryRegion/context/CitySelectorContext';
 
 function App() {
   const queryClient = new QueryClient();
@@ -12,8 +12,10 @@ function App() {
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
-        <AppRoutes />
-        <ReactQueryDevtools initialIsOpen={false} position="bottom" />
+        <CitySelectorProvider>
+          <AppRoutes />
+          <ReactQueryDevtools initialIsOpen={false} position="bottom" />
+        </CitySelectorProvider>
       </QueryClientProvider>
     </Router>
   );

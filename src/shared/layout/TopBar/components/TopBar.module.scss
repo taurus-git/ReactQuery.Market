@@ -1,0 +1,5 @@
+@use '@styles/abstracts/mixins' as *;
+
+.left {
+  @include gap(var(--spacing-3-5x));
+}
