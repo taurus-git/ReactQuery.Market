@@ -7,10 +7,8 @@ interface MenuItemProps {
 
 export const MenuItem = ({ onClose }: MenuItemProps) => {
   return (
-    <li>
-      <NavLink onClick={onClose} to={'/'}>
-        Menu Item
-      </NavLink>
-    </li>
+    <NavLink onClick={onClose} to={'/'} className={'fw-medium'}>
+      Menu Item
+    </NavLink>
   );
 };

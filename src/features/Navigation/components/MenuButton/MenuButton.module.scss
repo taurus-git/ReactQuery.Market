@@ -1,7 +1,6 @@
 @use '@styles/abstracts/mixins' as *;
 
 .menuButton {
-  z-index: 20;
   @include mq(md) {
     display: none;
   }

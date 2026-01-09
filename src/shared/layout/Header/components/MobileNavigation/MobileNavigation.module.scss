@@ -1,7 +1,20 @@
 .nav {
-  top: 0;
-  left: 0;
   overflow-y: auto;
-  background-color: var(--color-white);
-  z-index: 15;
+  padding: var(--spacing-5x) 0 var(--spacing-2x);
+
+  .closeButton {
+    top: var(--spacing-1x);
+    right: var(--spacing-1x);
+  }
+
+  li {
+    padding: var(--spacing-1x) 0 var(--spacing-1x);
+    border-bottom: 1px solid var(--color-gray);
+
+    a {
+      line-height: 1.8;
+      padding-right: var(--spacing-2x);
+      padding-left: var(--spacing-2x);
+    }
+  }
 }

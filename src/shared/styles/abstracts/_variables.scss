@@ -46,4 +46,13 @@
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /*Z-index*/
+  --z-base: 0;
+  --z-header: 10;
+  --z-dropdown: 20;
+  --z-overlay: 30;
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
 }

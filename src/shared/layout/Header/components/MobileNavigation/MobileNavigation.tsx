@@ -8,7 +8,7 @@ interface MobileNavigationProps {
 
 export const MobileNavigation = ({ onClose }: MobileNavigationProps) => {
   return (
-    <nav className={`position-fixed w-50 h-screen ${styles.nav}`}>
+    <nav className={` ${styles.nav}`}>
       <MobileMenu onClose={onClose} />
     </nav>
   );
