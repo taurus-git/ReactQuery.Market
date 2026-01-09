@@ -1,7 +1,7 @@
 .overlay {
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: var(--z-overlay);
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);;
 }

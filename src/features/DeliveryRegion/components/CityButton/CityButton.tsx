@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from '@shared/ui/Icon/Icon';
 import { CitySelectorContextType } from '@features/DeliveryRegion/types/cities';
 
-type CityDropdownProps = Pick<CitySelectorContextType, 'city' | 'toggleOpen'>;
+type CityButtonProps = Pick<CitySelectorContextType, 'city' | 'toggleOpen'>;
 
-export const CityDropdown = ({ city, toggleOpen }: CityDropdownProps) => {
+export const CityButton = ({ city, toggleOpen }: CityButtonProps) => {
   return (
     <div>
       <Icon name={'pin'} />
