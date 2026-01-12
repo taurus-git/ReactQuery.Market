@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './CityButton.module.scss';
 import { Icon } from '@shared/ui/Icon/Icon';
-import { CitySelectorContextType } from '@features/DeliveryRegion/types/cities';
+import { City } from '@features/DeliveryRegion/types/cities';
 
 type CityButtonVariant = 'desktop' | 'mobile';
 
-type CityButtonProps = Pick<CitySelectorContextType, 'city' | 'toggleOpen'> & {
+type CityButtonProps = {
+  city: City;
+  toggleOpen: () => void;
   variant?: CityButtonVariant;
 };
 
