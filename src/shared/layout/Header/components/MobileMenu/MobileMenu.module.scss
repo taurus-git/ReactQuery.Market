@@ -1,0 +1,13 @@
+.menu {
+  top: 0;
+  left: 0;
+  padding: var(--spacing-5x) 0 var(--spacing-2x);
+  z-index: var(--z-drawer);
+  background-color: var(--color-white);
+}
+
+.closeButton {
+  top: var(--spacing-1x);
+  right: var(--spacing-1x);
+}
+

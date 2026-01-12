@@ -1,18 +1,23 @@
 import React from 'react';
+import styles from './CityButton.module.scss';
 import { Icon } from '@shared/ui/Icon/Icon';
 import { CitySelectorContextType } from '@features/DeliveryRegion/types/cities';
 
-type CityButtonProps = Pick<CitySelectorContextType, 'city' | 'toggleOpen'>;
+type CityButtonVariant = 'desktop' | 'mobile';
 
-export const CityButton = ({ city, toggleOpen }: CityButtonProps) => {
+type CityButtonProps = Pick<CitySelectorContextType, 'city' | 'toggleOpen'> & {
+  variant?: CityButtonVariant;
+};
+
+export const CityButton = ({ city, toggleOpen, variant = 'mobile' }: CityButtonProps) => {
   return (
-    <div>
-      <Icon name={'pin'} />
-      <div>
+    <div className={`d-flex align-center ${variant === 'mobile' ? styles.mobile : styles.desktop}`}>
+      <Icon name={'pin'} size={20} />
+      <div className={`d-flex align-center flex-wrap ${styles.content}`}>
         <span>Ваш регион доставки:</span>
-        <button onClick={toggleOpen}>
+        <button onClick={toggleOpen} className={`d-flex align-center ${styles.trigger}`}>
           <span>{city.name}</span>
-          <Icon name={'shevron'} />
+          <Icon name={'shevron'} size={10} />
         </button>
       </div>
     </div>

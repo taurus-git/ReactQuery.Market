@@ -1,25 +1,29 @@
 import React from 'react';
+import styles from './CityList.module.scss';
 import { cities } from '@features/DeliveryRegion/config/cities';
-import { CitySelectorContextType } from '@features/DeliveryRegion/types/cities';
-import { Icon } from '@shared/ui/Icon/Icon';
+import { City } from '@features/DeliveryRegion/types/cities';
 
-type CityListProps = Omit<CitySelectorContextType, 'isOpen' | 'toggleOpen'>;
+interface CityListProps {
+  city: City;
+  onSelect: (city: City) => void;
+}
 
-export const CityList = ({ city, selectCity, close }: CityListProps) => {
+export const CityList = ({ city, onSelect }: CityListProps) => {
   return (
-    <div className={'city-list'}>
-      Выбранный город: {city.name}
-      <div>
-        <button className={'close'} onClick={close}>
-          <Icon name={'close'} />
-        </button>
-        <div>
-          {cities.map((c) => (
-            <button key={c.id} onClick={() => selectCity(c)}>
+    <div className={`h-100 p-8 d-flex justify-center align-center`}>
+      <div className={`d-flex justify-center align-center flex-wrap ${styles.cityList}`}>
+        {cities.map((c) => {
+          const isActive = city.id === c.id;
+          return (
+            <button
+              className={isActive ? 'link-underline' : undefined}
+              key={c.id}
+              onClick={() => onSelect(c)}
+            >
               {c.name}
             </button>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
