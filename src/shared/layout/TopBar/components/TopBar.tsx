@@ -8,6 +8,7 @@ import { CityButton } from '@features/DeliveryRegion/components/CityButton/CityB
 import { useCitySelectorState } from '@features/DeliveryRegion/hooks/useCitySelectorState';
 import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
 import { InfoLinks } from '@shared/ui/InfoLinks/InfoLinks';
+import { Benefits } from '@shared/layout/TopBar/components/Benefits/Benefits';
 
 export const TopBar = () => {
   const { city, isOpen, close, toggle, handleSelectCity } = useCitySelectorState();
@@ -30,7 +31,7 @@ export const TopBar = () => {
             <InfoLinks />
           </div>
           <div className={`d-flex ${styles.benefits}`}>
-            <div>ServiceBenefits</div>
+            <Benefits />
           </div>
         </div>
       </Container>

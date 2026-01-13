@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Benefits.module.scss';
 import { Icon } from '@shared/ui/Icon/Icon';
 
-export const ServiceBenefits = () => {
-  const services = [
+export const Benefits = () => {
+  const benefits = [
     {
       id: 'free-delivery',
       icon: 'car',
@@ -21,11 +22,11 @@ export const ServiceBenefits = () => {
   ];
 
   return (
-    <div className={`d-flex serviceBenefits`}>
-      {services.map((s) => (
-        <div key={s.id} className={`d-flex`}>
-          <Icon name={s.icon} />
-          <span>{s.text}</span>
+    <div className={`d-flex justify-center align-center ${styles.benefits}`}>
+      {benefits.map((i) => (
+        <div key={i.id} className={`d-flex justify-center align-center ${styles.benefit}`}>
+          <Icon name={i.icon} />
+          <span>{i.text}</span>
         </div>
       ))}
     </div>
