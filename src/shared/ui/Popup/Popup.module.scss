@@ -1,0 +1,8 @@
+.popup {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-modal);
+  color: var(--color-black);
+  background-color: var(--color-white);
+}

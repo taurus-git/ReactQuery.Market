@@ -1,5 +1,21 @@
 @use '@styles/abstracts/mixins' as *;
 
-.left {
+.topBarSection {
+  display: none;
+  @include mq(md) {
+    display: block;
+    min-height: var(--spacing-5x);
+    padding: var(--spacing-1-5x) 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+}
+
+.navigation {
   @include gap(var(--spacing-3-5x));
+}
+
+.close {
+  top: var(--spacing-1x);
+  right: var(--spacing-1x);
 }
