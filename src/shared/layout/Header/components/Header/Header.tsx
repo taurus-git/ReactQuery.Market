@@ -7,7 +7,7 @@ import { HeaderActions } from '@shared/layout/Header/components/HeaderActions/He
 import { FullScreenPanel } from '@shared/ui/FullScreenPanel/FullScreenPanel';
 import { CityList } from '@features/DeliveryRegion/components/CityList/CityList';
 import { MenuButton } from '@features/Navigation/components/MenuButton/MenuButton';
-import { MobileMenu } from '@shared/layout/Header/components/MobileMenu/MobileMenu';
+import { MobileNavigation } from '@shared/layout/Header/components/MobileNavigation/MobileNavigation';
 import { Overlay } from '@shared/ui/Overlay/Overlay';
 import { useCitySelectorState } from '@features/DeliveryRegion/hooks/useCitySelectorState';
 import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
@@ -38,7 +38,7 @@ export const Header = () => {
       {isMenuOpen && (
         <>
           <Overlay onClose={closeMenu} />
-          <MobileMenu closeMenu={closeMenu} toggleOpen={toggle} city={city} />
+          <MobileNavigation closeMenu={closeMenu} toggleOpen={toggle} city={city} />
         </>
       )}
       {isOpen && (
