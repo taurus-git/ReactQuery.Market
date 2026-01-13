@@ -1,13 +1,11 @@
 @use '@styles/abstracts/mixins' as * ;
 
 .mobile {
-  padding: 0 var(--spacing-2x);
   @include gap(var(--spacing-1-5x), var(--spacing-1-5x));
 }
 
 
 .content {
-  font-size: 1.2rem;
   @include gap(var(--spacing-1x), var(--spacing-1x));
 }
 

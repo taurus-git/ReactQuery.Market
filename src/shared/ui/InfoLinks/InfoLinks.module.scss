@@ -1,0 +1,5 @@
+@use '@styles/abstracts/mixins' as *;
+
+.infoLinks {
+  @include gap(var(--spacing-1x), var(--spacing-2-5x));
+}

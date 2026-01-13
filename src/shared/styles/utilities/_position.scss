@@ -28,3 +28,8 @@
   right: 0;
   bottom: 0;
 }
+
+.close {
+  top: var(--spacing-1x);
+  right: var(--spacing-1x);
+}

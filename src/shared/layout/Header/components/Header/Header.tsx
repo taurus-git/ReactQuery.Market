@@ -9,8 +9,8 @@ import { CityList } from '@features/DeliveryRegion/components/CityList/CityList'
 import { MenuButton } from '@features/Navigation/components/MenuButton/MenuButton';
 import { MobileMenu } from '@shared/layout/Header/components/MobileMenu/MobileMenu';
 import { Overlay } from '@shared/ui/Overlay/Overlay';
-import { Icon } from '@shared/ui/Icon/Icon';
 import { useCitySelectorState } from '@features/DeliveryRegion/hooks/useCitySelectorState';
+import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
 
 export const Header = () => {
   const { city, isOpen, close, toggle, handleSelectCity } = useCitySelectorState();
@@ -43,9 +43,7 @@ export const Header = () => {
       )}
       {isOpen && (
         <FullScreenPanel>
-          <button className={`position-absolute ${styles.close}`} onClick={close}>
-            <Icon name={'close'} />
-          </button>
+          <CloseButton className={`position-absolute close`} onClose={close} />
           <CityList city={city} onSelectCity={handleSelectCity} />
         </FullScreenPanel>
       )}
