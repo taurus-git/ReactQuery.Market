@@ -1,0 +1,28 @@
+@use '@styles/abstracts/mixins' as *;
+
+.action {
+  @include mq(md) {
+    pointer-events: none;
+    cursor: default;
+    outline: none;
+  }
+}
+
+.actionIcon {
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.content {
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.open {
+  .content {
+    display: block;
+  }
+}

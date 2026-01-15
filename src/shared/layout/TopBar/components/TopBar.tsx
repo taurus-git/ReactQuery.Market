@@ -16,8 +16,8 @@ export const TopBar = () => {
   return (
     <section className={`align-center ${styles.topBarSection}`}>
       <Container>
-        <div className={`d-flex align-center justify-between flex-wrap ${styles.topBar}`}>
-          <div className={`d-flex ${styles.navigation}`}>
+        <div className={`d-flex align-center justify-between ${styles.topBar}`}>
+          <div className={`d-flex flex-wrap ${styles.navigation}`}>
             {isOpen && (
               <>
                 <Overlay onClose={close} />
@@ -30,7 +30,7 @@ export const TopBar = () => {
             <CityButton city={city} toggleOpen={toggle} variant={'mobile'} />
             <InfoLinks />
           </div>
-          <div className={`d-flex ${styles.benefits}`}>
+          <div className={`d-flex flex-wrap ${styles.benefits}`}>
             <Benefits />
           </div>
         </div>
