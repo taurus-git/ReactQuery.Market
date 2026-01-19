@@ -1,3 +1,19 @@
-.socialLinks {
+@use "@styles/abstracts/mixins" as *;
+
+.socialLinksNav {
   grid-area: social
+}
+
+.socialLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--spacing-2x));
+  justify-content: center;
+  align-content: center;
+  gap: var(--spacing-1x) var(--spacing-3x);
+  padding: var(--spacing-2-5x) 0;
+
+  @include mq(md) {
+    justify-content: start;
+    padding: var(--spacing-3x) 0;
+  }
 }

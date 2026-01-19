@@ -19,4 +19,11 @@ export const footerLinks = {
     { id: 'dc', label: 'DC Shoes', href: '/' },
     { id: 'club', label: 'Boardriders Club', href: '/' },
   ],
+  social: [
+    { id: 'twitter', label: 'twitter', href: 'https://twitter.com' },
+    { id: 'facebook', label: 'facebook', href: 'https://facebook.com' },
+    { id: 'twitch', label: 'twitch', href: 'https://www.twitch.tv' },
+    { id: 'youtube', label: 'youtube', href: 'https://www.youtube.com' },
+    { id: 'instagram', label: 'instagram', href: 'https://www.instagram.com' },
+  ],
 };
