@@ -49,7 +49,7 @@ export const HomePage = () => {
 
       {/*<h2>Icons</h2>*/}
       {/*<button>*/}
-      {/*  <Icon name="account" size={24} color="var(--color-red)" />*/}
+      {/*  <Icon name="account" size={24}  />*/}
       {/*</button>*/}
       {/*<button>*/}
       {/*  <Icon name="star" size={24} />*/}

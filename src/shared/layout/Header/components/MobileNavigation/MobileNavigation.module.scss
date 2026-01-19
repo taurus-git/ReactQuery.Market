@@ -10,6 +10,6 @@
 
 .links {
   padding: 0 var(--spacing-2x);
-  font-size: 1.2rem;
+  font-size: var(--font-size-xs);
   @include gap(var(--spacing-2x));
 }

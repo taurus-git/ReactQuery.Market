@@ -1,3 +1,26 @@
+@use "@styles/abstracts/mixins" as *;
+
 .subscription {
   grid-area: subscription;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  justify-content: stretch;
+  align-content: center;
+  align-items: start;
+  gap: 1.5rem;
+  border: 1px solid var(--color-dark-grey);
+  font-size: var(--font-size-base);
+}
+
+.icon {
+  align-self: start;
+}
+
+.iconLetter {
+  justify-self: end;
+  color: var(--color-dark-grey);
+}
+
+.iconPush {
+  color: var(--color-white);
 }

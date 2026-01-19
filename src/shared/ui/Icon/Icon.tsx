@@ -8,18 +8,12 @@ interface IconProps {
   className?: string;
 }
 
-export const Icon: React.FC<IconProps> = ({
-  name,
-  size = 24,
-  color = 'currentColor',
-  className = '',
-}) => (
+export const Icon: React.FC<IconProps> = ({ name, size = 24, className = '' }) => (
   <svg
     className={`d-inline-block ${styles.icon} ${className}`}
     width={size}
     height={size}
     viewBox="0 0 16 16"
-    style={{ color }}
     aria-hidden
   >
     <use href={`/icons/sprite.svg#${name}`} />
