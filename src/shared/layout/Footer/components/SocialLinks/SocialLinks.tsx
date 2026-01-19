@@ -4,7 +4,7 @@ import { Icon } from '@shared/ui/Icon/Icon';
 
 export const SocialLinks = () => {
   return (
-    <nav className={`${styles.SocialLinks}`}>
+    <nav className={`${styles.socialLinks}`}>
       <ul className="social-links">
         <li>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">

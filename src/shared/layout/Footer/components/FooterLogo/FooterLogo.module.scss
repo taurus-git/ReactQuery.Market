@@ -1,0 +1,13 @@
+@use '@styles/abstracts/mixins' as *;
+
+.logo {
+  display: none;
+  @include mq(md) {
+    display: inline-block;
+    grid-area: logo;
+  }
+
+  img {
+    max-height: 5.5rem;
+  }
+}

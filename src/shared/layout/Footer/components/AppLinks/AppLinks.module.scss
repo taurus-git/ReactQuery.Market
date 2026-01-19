@@ -1,0 +1,16 @@
+@use "@styles/abstracts/mixins" as *;
+
+.appLinks {
+  grid-area: apps;
+}
+
+.appImage {
+  max-height: 5rem;
+}
+
+.qrCode {
+  display: none;
+  @include mq(md) {
+    display: inline-block;
+  }
+}

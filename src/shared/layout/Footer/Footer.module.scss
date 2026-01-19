@@ -1,35 +1,46 @@
-.footer {
+@use "@styles/abstracts/mixins" as *;
 
+.footer {
+  background-color: var(--color-black);
+  color: var(--color-light-gray);
 }
 
 .footerSection {
+  display: grid;
+  grid-template-areas:
+  "subscription"
+  "social"
+  "apps"
+  "contact"
+  "help"
+  "company"
+  "brand";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  padding-top: 5rem;
 
+  @include mq(md) {
+    grid-template-areas:
+    "logo subscription subscription subscription subscription"
+    "apps contact help company brand"
+    "social . . . copyright";
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
-.footerServices {
-
+.footerColContact {
+  grid-area: contact;
 }
 
-.subscription {
-
+.footerColHelp {
+  grid-area: help;
 }
 
-.appLinks {
-
+.footerCompany {
+  grid-area: company;
 }
 
-.SocialLinks {
-
-}
-
-.footerContacts {
-
-}
-
-.footerLinks {
-
-}
-
-.footerCopyright {
-
+.footerBrand {
+  grid-area: brand;
 }
