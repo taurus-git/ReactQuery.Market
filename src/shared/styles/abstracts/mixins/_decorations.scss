@@ -1,0 +1,8 @@
+@mixin underline($height: 1px, $bg-color: var(--color-dark-grey), $m-top: 0.5rem) {
+  content: '';
+  display: block;
+  height: $height;
+  width: 100%;
+  background-color: $bg-color;
+  margin-top: $m-top;
+}

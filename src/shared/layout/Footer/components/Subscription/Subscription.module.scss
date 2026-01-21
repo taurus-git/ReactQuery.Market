@@ -2,23 +2,30 @@
 
 .subscription {
   grid-area: subscription;
-  display: grid;
   grid-template-columns: var(--spacing-2x) minmax(0, 1fr) var(--spacing-2x);
   justify-content: stretch;
+  justify-items: start;
   align-content: center;
   align-items: start;
   gap: var(--spacing-1-5x);
   border: 1px solid var(--color-dark-grey);
-  font-size: var(--font-size-base);
-}
 
-.icon {
-  align-self: start;
+  @include btn-size(var(--spacing-1x), var(--spacing-1x));
+  @include btn-font();
+
+  @include mq(md) {
+    align-self: end;
+    align-items: center;
+  }
 }
 
 .iconLetter {
   justify-self: end;
   color: var(--color-dark-grey);
+}
+
+.text {
+  text-align: left;
 }
 
 .iconPush {

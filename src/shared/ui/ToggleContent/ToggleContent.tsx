@@ -17,10 +17,10 @@ export const ToggleContent = ({ title, children, className }: ToggleContentProps
   return (
     <div className={`${toggleClass} ${styles.toggleSection} ${className}`}>
       <div className={`${styles.text}`}>
-        <button className={`${styles.action}`} onClick={handleClick}>
+        <button className={`position-relative ${styles.action}`} onClick={handleClick}>
           <span className={`${styles.actionText}`}>{title}</span>
           <span className={`${styles.actionIcon}`}>
-            <Icon name={'shevron'} />
+            <Icon name={'shevron'} size={10} />
           </span>
         </button>
       </div>

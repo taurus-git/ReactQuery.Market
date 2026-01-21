@@ -5,7 +5,6 @@
 }
 
 .socialLinks {
-  display: grid;
   grid-template-columns: repeat(auto-fit, var(--spacing-2x));
   justify-content: center;
   align-content: center;

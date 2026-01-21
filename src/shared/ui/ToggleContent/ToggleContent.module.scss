@@ -1,10 +1,53 @@
 @use '@styles/abstracts/mixins' as *;
 
+.toggleSection {
+  position: relative;
+
+  &.open {
+    padding-bottom: var(--spacing-2-5x);
+    
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include underline();
+    }
+
+    .action::after {
+      content: none;
+    }
+
+    .content {
+      display: block;
+    }
+  }
+}
+
 .action {
+  // Intentionally using CSS Grid instead of Flexbox to gain hands-on Grid experience,
+  // even though this is not the optimal solution for this case.
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: start;
+  align-items: center;
+
+  @include btn-size(1.7rem, 0, null, 100%);
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include underline();
+  }
+
   @include mq(md) {
     pointer-events: none;
     cursor: default;
     outline: none;
+
+    &::after {
+      content: none;
+    }
   }
 }
 
@@ -17,12 +60,6 @@
 .content {
   display: none;
   @include mq(md) {
-    display: block;
-  }
-}
-
-.open {
-  .content {
     display: block;
   }
 }

@@ -7,10 +7,14 @@ import { QrCode } from '../QrCode/QrCode';
 
 export const AppLinks = () => {
   return (
-    <div className={`${styles.appLinks}`}>
-      <span>Доступ к ранним релизам в приложении</span>
-      <Image className={`${styles.appImage}`} src={appStore} />
-      <Image className={`${styles.appImage}`} src={googlePlay} />
+    <div className={`d-grid ${styles.appLinks}`}>
+      <span className={`${styles.appHeader}`}>Доступ к ранним релизам в приложении</span>
+      <button className={`${styles.appButton}`}>
+        <Image className={`${styles.appImage}`} src={appStore} />
+      </button>
+      <button className={`${styles.appButton}`}>
+        <Image className={`${styles.appImage}`} src={googlePlay} />
+      </button>
       <span className={`${styles.qrCode}`}>
         <QrCode />
       </span>

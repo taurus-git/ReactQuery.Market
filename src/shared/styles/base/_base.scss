@@ -76,3 +76,18 @@ button {
 ol, ul {
   list-style: none;
 }
+
+/*
+picture {
+  display: block;
+  margin: 0;
+  padding: 0;
+}*/
+
+img, video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+

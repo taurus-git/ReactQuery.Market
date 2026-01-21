@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <footer className={`${styles.footer}`}>
       <Container>
-        <section className={`${styles.footerSection}`}>
+        <section className={`d-grid ${styles.footerSection}`}>
           <FooterLogo />
           <Subscription />
           <SocialLinks />
