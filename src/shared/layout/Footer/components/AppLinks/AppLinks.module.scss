@@ -1,10 +1,11 @@
 @use "@styles/abstracts/mixins" as *;
 
 .appLinks {
-  grid-area: apps;
   position: relative;
+  grid-area: apps;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: var(--spacing-2x) var(--spacing-1x);
+  align-content: start;
   padding-bottom: var(--spacing-2x);
 
   &::after {
