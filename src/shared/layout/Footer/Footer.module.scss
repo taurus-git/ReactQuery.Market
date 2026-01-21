@@ -14,27 +14,51 @@
   "contact"
   "help"
   "company"
-  "brand";
+  "brand"
+  "copyright";
   grid-template-columns: auto;
   grid-template-rows: auto;
   padding-top: 5rem;
 
   @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "logo subscription"
+      "apps contact"
+      "help company"
+      "brand social"
+      "copyright copyright";
+    grid-gap: var(--spacing-3x)
+  }
+
+  @include mq(lg) {
     grid-template-areas:
     "logo subscription subscription subscription subscription"
     "apps contact help company brand"
     "social . . . copyright";
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(3, auto);
-    row-gap: var(--spacing-6x);
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: var(--spacing-6x) var(--spacing-2x);
+
   }
 }
 
-.footerColContact {
+.footerCol {
+  li > a {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-dark-grey);
+  }
+
+  li:not(:last-child) {
+    margin-bottom: var(--spacing-2x);
+  }
+}
+
+.footerContacts {
   grid-area: contact;
 }
 
-.footerColHelp {
+.footerHelp {
   grid-area: help;
 }
 
@@ -44,4 +68,8 @@
 
 .footerBrand {
   grid-area: brand;
+}
+
+.footerCopyright {
+  grid-area: copyright;
 }

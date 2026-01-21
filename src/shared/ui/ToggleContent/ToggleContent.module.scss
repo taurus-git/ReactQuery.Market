@@ -5,12 +5,16 @@
 
   &.open {
     padding-bottom: var(--spacing-2-5x);
-    
+
     &::after {
       position: absolute;
       left: 0;
       bottom: 0;
       @include underline();
+
+      @include mq(md) {
+        content: none;
+      }
     }
 
     .action::after {
@@ -20,6 +24,7 @@
     .content {
       display: block;
     }
+
   }
 }
 
@@ -41,9 +46,12 @@
   }
 
   @include mq(md) {
+    margin-bottom: var(--spacing-2-5x);
     pointer-events: none;
     cursor: default;
     outline: none;
+
+    @include btn-size(0, 0, null, null);
 
     &::after {
       content: none;
@@ -63,3 +71,4 @@
     display: block;
   }
 }
+

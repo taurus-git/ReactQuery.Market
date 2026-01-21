@@ -4,7 +4,7 @@
   grid-area: apps;
   position: relative;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--spacing-2x) var(--spacing-1x);
+  grid-gap: var(--spacing-2x) var(--spacing-1x);
   padding-bottom: var(--spacing-2x);
 
   &::after {
@@ -15,9 +15,10 @@
   }
 
   @include mq(md) {
-    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-columns: 17rem 1fr;
     grid-auto-rows: auto;
-    gap: var(--spacing-1-5x) var(--spacing-3x);
+    grid-gap: var(--spacing-1-5x) var(--spacing-3x);
+    align-items: start;
 
     &::after {
       content: none;

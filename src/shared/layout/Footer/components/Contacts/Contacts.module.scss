@@ -1,0 +1,19 @@
+.contact {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: var(--spacing-3x) var(--spacing-1-5x);
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-2-5x);
+  }
+}
+
+.text {
+  margin-bottom: var(--spacing-1x);
+}
+
+.meta {
+  font-size: var(--font-size-xs);
+  line-height: 1.7;
+  color: var(--color-dark-grey);
+}
