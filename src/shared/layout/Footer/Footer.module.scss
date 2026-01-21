@@ -18,7 +18,7 @@
   "copyright";
   grid-template-columns: auto;
   grid-template-rows: auto;
-  padding-top: 5rem;
+  padding: var(--spacing-5x) 0 var(--spacing-2-5x);
 
   @include mq(md) {
     grid-template-columns: repeat(2, 1fr);
@@ -35,8 +35,8 @@
     grid-template-areas:
     "logo subscription subscription subscription subscription"
     "apps contact help company brand"
-    "social . . . copyright";
-    grid-template-columns: repeat(5, 1fr);
+    "social . . copyright copyright";
+    grid-template-columns: 35rem repeat(4, 1fr);
     grid-gap: var(--spacing-6x) var(--spacing-2x);
 
   }

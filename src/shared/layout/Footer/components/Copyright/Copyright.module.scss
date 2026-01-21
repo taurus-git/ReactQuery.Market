@@ -1,0 +1,18 @@
+@use "@styles/abstracts/mixins" as *;
+
+.copyright {
+  margin-top: var(--spacing-2-5x);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-grey);
+  text-align: center;
+
+  @include mq(md) {
+    text-align: left;
+  }
+
+  @include mq(lg) {
+    margin-top: 0;
+    text-align: end;
+    align-self: center;
+  }
+}
