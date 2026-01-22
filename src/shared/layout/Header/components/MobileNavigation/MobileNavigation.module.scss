@@ -8,8 +8,16 @@
   background-color: var(--color-white);
 }
 
-.links {
+.linksWrapper {
   padding: 0 var(--spacing-2x);
   font-size: var(--font-size-xs);
-  @include gap(var(--spacing-2x));
+}
+
+.actions {
+  padding: var(--spacing-2x) 0;
+  @include gap(var(--spacing-1x), 0);
+}
+
+.links {
+  @include gap(var(--spacing-1x), var(--spacing-2x));
 }
