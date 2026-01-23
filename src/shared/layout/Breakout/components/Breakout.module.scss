@@ -1,0 +1,38 @@
+@use "@shared/styles/abstracts/mixins" as *;
+
+.breakout {
+
+}
+
+.breakoutMobile {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  @include mq(md) {
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+}
+
+.breakoutTablet {
+  @include mq(md) {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+}
+
+.breakoutDesktop {
+  @include mq(lg) {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+}
+
+.breakoutAll {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+}
