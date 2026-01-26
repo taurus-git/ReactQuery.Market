@@ -6,6 +6,8 @@ import { MobileMenu } from '@shared/layout/Header/components/MobileMenu/MobileMe
 import { CityButton } from '@features/DeliveryRegion/components/CityButton/CityButton';
 import { InfoLinks } from '@shared/ui/InfoLinks/InfoLinks';
 import { Link } from 'react-router-dom';
+import { useCategories } from '@features/Products/hooks/useCategories';
+import { QueryState } from '@shared/ui/QueryState';
 
 interface MobileNavigationProps {
   closeMenu: () => void;
@@ -14,13 +16,17 @@ interface MobileNavigationProps {
 }
 
 export const MobileNavigation = ({ closeMenu, toggleOpen, city }: MobileNavigationProps) => {
+  const { data, isLoading, isError } = useCategories();
+
   return (
     <div
       className={`h-screen position-fixed w-75 d-flex flex-column justify-between ${styles.menu}`}
     >
       <CloseButton onClose={closeMenu} className={`position-absolute close`} />
       <div className={'navigation'}>
-        <MobileMenu onClose={closeMenu} />
+        <QueryState isLoading={isLoading} isError={isError}>
+          {data && <MobileMenu data={data} onClose={closeMenu} />}
+        </QueryState>
       </div>
 
       <div className={`d-flex flex-column justify-center align-center ${styles.linksWrapper}`}>
