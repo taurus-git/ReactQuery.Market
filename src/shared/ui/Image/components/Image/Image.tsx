@@ -1,7 +1,7 @@
 import React from 'react';
+import styles from './Image.module.scss';
 import { srcSetItem } from '@shared/ui/Image/types/image.types';
 import { useImage } from '@shared/ui/Image/hooks/useImage';
-import styles from './Image.module.scss';
 
 export interface ImageProps {
   src: string;

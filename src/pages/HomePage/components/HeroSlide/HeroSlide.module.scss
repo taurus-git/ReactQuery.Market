@@ -1,0 +1,36 @@
+@use "@styles/abstracts/mixins" as *;
+
+.slide {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  place-content: center;
+  row-gap: var(--spacing-1-5x);
+
+  @include mq(md) {
+    grid-template-rows:
+            auto
+            clamp(2rem, 9vh, 8rem);
+  }
+}
+
+.imageWrapper {
+  overflow: hidden;
+  aspect-ratio: 374 / 191;
+  max-height: 19.1rem;
+
+  @include mq(md) {
+    aspect-ratio: 438 / 222;
+    max-height: 22.2rem;
+  }
+}
+
+.title {
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+
+  @include mq(md) {
+    font-size: var(--font-size-4xl);
+    text-transform: none;
+    line-height: 1.4;
+  }
+}

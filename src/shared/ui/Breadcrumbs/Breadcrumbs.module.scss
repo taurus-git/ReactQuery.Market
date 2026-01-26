@@ -1,0 +1,12 @@
+@use "@styles/abstracts/mixins" as *;
+
+.breadcrumbs {
+  margin-bottom: var(--spacing-2x);
+  font-size: var(--font-size-xs);
+  line-height: 1.67;
+
+  @include mq(md) {
+    margin-bottom: var(--spacing-4x);
+    line-height: 1.17;
+  }
+}

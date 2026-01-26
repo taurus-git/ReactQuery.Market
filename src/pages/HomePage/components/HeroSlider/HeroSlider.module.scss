@@ -1,0 +1,19 @@
+@use "@shared/styles/abstracts/mixins" as *;
+
+.sliderWrapper {
+  padding: var(--spacing-1-5x) 0;
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  @include mq(md) {
+    padding: var(--spacing-2-5x) 0 var(--spacing-3-5x) 0;
+  }
+}
+
+.slider {
+  padding-left: var(--spacing-2x);
+
+  @include mq(md) {
+    padding-left: 0;
+  }
+}
