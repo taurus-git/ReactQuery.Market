@@ -7,6 +7,7 @@ import '@shared/ui/Icon/sprite';
 const Home = lazy(() => import('@pages/HomePage'));
 const Products = lazy(() => import('@pages/ProductsPage'));
 const SingleProduct = lazy(() => import('@pages/SingleProductPage'));
+const Category = lazy(() => import('@pages/CategoryPage'));
 
 export const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ export const AppRoutes = () => {
           <Route index element={<Home />} />
           <Route path={ROUTES.PRODUCTS} element={<Products />} />
           <Route path={ROUTES.SINGLE_PRODUCT} element={<SingleProduct />} />
+          <Route path={ROUTES.CATEGORY} element={<Category />} />
         </Route>
       </Routes>
     </Suspense>

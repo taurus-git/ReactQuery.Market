@@ -3,6 +3,6 @@ export const ROUTES = {
   PRODUCTS: '/products',
   SINGLE_PRODUCT: '/products/:id',
   CATEGORIES: '/products/categories',
-  CATEGORY: 'products/category/:slug',
+  CATEGORY: '/products/category/:slug',
   CART: '/cart',
 } as const;

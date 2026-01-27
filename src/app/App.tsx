@@ -4,6 +4,7 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { CitySelectorProvider } from '@features/DeliveryRegion/context/CitySelectorContext';
+import { DataProvider } from '@app/providers/DataProvider';
 
 function App() {
   const queryClient = new QueryClient();
@@ -13,8 +14,10 @@ function App() {
     <Router>
       <QueryClientProvider client={queryClient}>
         <CitySelectorProvider>
-          <AppRoutes />
-          <ReactQueryDevtools initialIsOpen={false} position="bottom" />
+          <DataProvider>
+            <AppRoutes />
+            <ReactQueryDevtools initialIsOpen={false} position="bottom" />
+          </DataProvider>
         </CitySelectorProvider>
       </QueryClientProvider>
     </Router>

@@ -9,7 +9,9 @@ export const MainLayout = () => {
     <>
       <TopBar />
       <Header />
-      <main>{<Outlet />}</main>
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
