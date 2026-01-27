@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { categoriesKeys } from '@features/Products/api/queryKeys';
 import { fetchCategories } from '@features/Products/api/categoriesApi';
-import { TIME } from '@shared/types/time.types';
+import { QUERY_CONFIG } from '@services/query/queryConfig';
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const queryClient = useQueryClient();
@@ -12,7 +12,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     queryClient.prefetchQuery({
       queryKey: categoriesKeys.lists(),
       queryFn: () => fetchCategories(),
-      staleTime: TIME.HOUR,
+      ...QUERY_CONFIG.critical,
     });
   });
 
