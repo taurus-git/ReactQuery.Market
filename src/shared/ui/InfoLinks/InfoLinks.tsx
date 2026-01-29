@@ -7,7 +7,7 @@ export const InfoLinks = () => {
   return (
     <div className={`d-flex ${styles.infoLinks}`}>
       {infoLinksConfig.map(({ id, label, href }) => (
-        <NavLink key={id} to={href}>
+        <NavLink key={id} to={href} className={`fw-medium`}>
           {label}
         </NavLink>
       ))}
