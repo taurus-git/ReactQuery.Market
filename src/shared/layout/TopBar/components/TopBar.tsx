@@ -17,7 +17,7 @@ export const TopBar = () => {
     <section className={`align-center ${styles.topBarSection}`}>
       <Container>
         <div className={`d-flex align-center justify-between ${styles.topBar}`}>
-          <div className={`d-flex flex-wrap ${styles.navigation}`}>
+          <div className={`d-flex flex-wrap align-center ${styles.navigation}`}>
             {isOpen && (
               <>
                 <Overlay onClose={close} />
