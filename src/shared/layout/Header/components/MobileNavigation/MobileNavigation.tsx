@@ -16,7 +16,7 @@ interface MobileNavigationProps {
 }
 
 export const MobileNavigation = ({ closeMenu, toggleOpen, city }: MobileNavigationProps) => {
-  const { data, isLoading, isError } = useCategories();
+  const categoriesQuery = useCategories();
 
   return (
     <div
@@ -24,8 +24,8 @@ export const MobileNavigation = ({ closeMenu, toggleOpen, city }: MobileNavigati
     >
       <CloseButton onClose={closeMenu} className={`position-absolute close`} />
       <div className={'navigation'}>
-        <QueryState isLoading={isLoading} isError={isError}>
-          {data && <MobileMenu data={data} onClose={closeMenu} />}
+        <QueryState query={categoriesQuery}>
+          {(data) => <MobileMenu data={data} onClose={closeMenu} />}
         </QueryState>
       </div>
 

@@ -33,7 +33,7 @@
 
   @include mq(lg) {
     grid-template-areas:
-    "logo subscription subscription subscription subscription"
+    "logo . subscription subscription subscription"
     "apps contact help company brand"
     "social . . copyright copyright";
     grid-template-columns: 35rem repeat(4, 1fr);
