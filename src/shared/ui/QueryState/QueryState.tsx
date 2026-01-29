@@ -1,10 +1,22 @@
 import React from 'react';
-import { QueryStateInterface } from './QueryState.types';
 import { Loader } from '../Loader';
 import { ErrorMessage } from '../ErrorMessage';
+import { UseQueryResult } from '@tanstack/react-query';
 
-export const QueryState = ({ isLoading, isError, children }: QueryStateInterface) => {
-  if (isLoading) return <Loader />;
-  if (isError) return <ErrorMessage />;
-  return <>{children}</>;
+interface QueryStateProps<T> {
+  query: UseQueryResult<T>;
+  children: (data: T) => React.ReactNode;
+  skeleton?: React.ReactNode;
+}
+
+export const QueryState = <T,>({ query, children, skeleton }: QueryStateProps<T>) => {
+  const { data, isLoading, isError } = query;
+
+  if (isError && !data) return <ErrorMessage />;
+
+  if (data) return <>{children(data)}</>;
+
+  if (isLoading) return <>{skeleton || <Loader />}</>;
+
+  return null;
 };
