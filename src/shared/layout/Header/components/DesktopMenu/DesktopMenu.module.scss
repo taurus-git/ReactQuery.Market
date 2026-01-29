@@ -1,0 +1,11 @@
+.menu {
+  // CSS Grid is intentionally used here for learning purposes.
+  // I’m aware this is not the optimal solution for this case,
+  // but it’s chosen to practice and better understand CSS Grid.
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-gap: var(--spacing-1x) var(--spacing-2-5x);
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}

@@ -7,3 +7,11 @@
     min-height: 9.4rem;
   }
 }
+
+.desktopMenu {
+  display: none;
+  @include mq(md) {
+    display: block;
+    background-color: var(--color-light-gray);
+  }
+}

@@ -11,7 +11,7 @@ interface MobileMenuProps {
 
 export const MobileMenu = ({ data, onClose }: MobileMenuProps) => {
   return (
-    <nav className={` ${styles.nav}`}>
+    <nav className={`${styles.nav}`}>
       <ul className={`${styles.menu}`}>
         {data.map(({ slug, name }: Category) => (
           <li className={`d-flex align-center`} key={slug}>

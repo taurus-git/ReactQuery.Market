@@ -11,9 +11,13 @@ import { MobileNavigation } from '@shared/layout/Header/components/MobileNavigat
 import { Overlay } from '@shared/ui/Overlay/Overlay';
 import { useCitySelectorState } from '@features/DeliveryRegion/hooks/useCitySelectorState';
 import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
+import { DesktopMenu } from '@shared/layout/Header/components/DesktopMenu/DesktopMenu';
+import { useCategories } from '@features/Products/hooks/useCategories';
+import { QueryState } from '@shared/ui/QueryState';
 
 export const Header = () => {
   const { city, isOpen, close, toggle, handleSelectCity } = useCitySelectorState();
+  const categoriesQuery = useCategories();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,6 +37,11 @@ export const Header = () => {
             <HeaderLogo />
             <HeaderActions />
           </div>
+        </Container>
+      </div>
+      <div className={`${styles.desktopMenu}`}>
+        <Container>
+          <QueryState query={categoriesQuery}>{(data) => <DesktopMenu data={data} />}</QueryState>
         </Container>
       </div>
       {isMenuOpen && (
