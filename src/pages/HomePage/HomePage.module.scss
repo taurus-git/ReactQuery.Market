@@ -1,0 +1,72 @@
+@use "@styles/abstracts/mixins" as *;
+
+.homeWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "sort filter"
+    "products products"
+    "pagination pagination"
+    "showMore showMore";
+  grid-row-gap: var(--spacing-2x);
+
+  @include mq(md) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    ". . . sort"
+    "filter products products products"
+    "filter pagination pagination pagination"
+    "filter showMore showMore showMore";
+    grid-gap: var(--spacing-2-5x);
+  }
+}
+
+.sort {
+  grid-area: sort;
+}
+
+.filterButton {
+  display: block;
+  grid-area: filter;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.filters {
+  grid-area: filter;
+  display: none;
+
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.filterCategory {
+
+}
+
+.productList {
+  grid-area: products;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--spacing-4x) var(--spacing-1x);
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-5x) var(--spacing-2-5x);
+  }
+;
+}
+
+.pagination {
+  grid-area: pagination;
+  justify-self: center;
+}
+
+.showMore {
+  grid-area: showMore;
+  justify-self: center;
+}

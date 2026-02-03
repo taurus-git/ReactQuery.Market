@@ -11,7 +11,7 @@ const Category = lazy(() => import('@pages/CategoryPage'));
 
 export const AppRoutes = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div></div>}>
       <Routes>
         <Route path={ROUTES.HOME} element={<MainLayout />}>
           <Route index element={<Home />} />
