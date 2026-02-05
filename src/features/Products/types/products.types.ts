@@ -1,3 +1,5 @@
+import { SortBy, SortOrder } from '@features/Sort/types/sort.types';
+
 export interface Product {
   id: number;
   title: string;
@@ -10,4 +12,11 @@ export interface ProductsResponse {
   total: number;
   skip: number;
   limit: number;
+}
+
+export interface FetchProductsParams {
+  sortBy?: SortBy;
+  order?: SortOrder;
+  limit?: number;
+  skip?: number;
 }

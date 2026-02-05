@@ -1,15 +1,14 @@
 import { apiClient } from '@services/api/axios.config';
 import { PRODUCTS_ENDPOINTS } from './endpoints';
-import { Product, ProductsResponse } from '@features/Products/types/products.types';
+import {
+  Product,
+  ProductsResponse,
+  FetchProductsParams,
+} from '@features/Products/types/products.types';
 import { CategoryProductsParams } from '@features/Products/types/categories.types';
 
-export const fetchProducts = async (params: string): Promise<ProductsResponse> => {
-  if (!params) {
-    const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS);
-    return data;
-  }
-
-  const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.PRODUCTS}?${params}`);
+export const fetchProducts = async (params: FetchProductsParams): Promise<ProductsResponse> => {
+  const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS, { params });
   return data;
 };
 

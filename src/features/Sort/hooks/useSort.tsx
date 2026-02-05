@@ -5,8 +5,8 @@ export function useSort() {
   const [searchParams, setSearchParams] = useSearchParams();
   let queryString = '';
 
-  const sortBy = searchParams.get('sortBy') as SortBy | null;
-  const order = searchParams.get('order') as SortOrder | null;
+  const sortBy = searchParams.get('sortBy') as SortBy | undefined;
+  const order = searchParams.get('order') as SortOrder | undefined;
 
   const setSort = ({ sortBy, order }: SortOption) => {
     setSearchParams((prev) => {
@@ -28,5 +28,5 @@ export function useSort() {
     queryString = `sortBy=${sortBy}&order=${order}`;
   }
 
-  return { sortBy, order, setSort, queryString };
+  return { searchParams, sortBy, order, setSort, queryString };
 }
