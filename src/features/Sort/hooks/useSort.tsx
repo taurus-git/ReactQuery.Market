@@ -23,5 +23,5 @@ export function useSort() {
     });
   };
 
-  return { searchParams, sortBy, order, setSort };
+  return { sortBy, order, setSort };
 }

@@ -18,27 +18,27 @@ export const SORT_OPTIONS: SortOption[] = [
     // sortBy и order не указаны = без сортировки
   },
   {
-    label: 'Сначала дешевые', // https://dummyjson.com/products?sortBy=price&order=asc
+    label: 'Сначала дешевые',
     sortBy: 'price',
     order: 'asc',
   },
   {
-    label: 'Сначала дорогие', // https://dummyjson.com/products?sortBy=price&order=desc
+    label: 'Сначала дорогие',
     sortBy: 'price',
     order: 'desc',
   },
   {
-    label: 'По названию: А-Я', // https://dummyjson.com/products?sortBy=brand&order=asc
+    label: 'По названию: А-Я',
     sortBy: 'title',
     order: 'asc',
   },
   {
-    label: 'По названию: Я-А', // https://dummyjson.com/products?sortBy=brand&order=desc
+    label: 'По названию: Я-А',
     sortBy: 'title',
     order: 'desc',
   },
   {
-    label: 'По рейтингу', // https://dummyjson.com/products?sortBy=rating&order=desc
+    label: 'По рейтингу',
     sortBy: 'rating',
     order: 'desc',
   },
