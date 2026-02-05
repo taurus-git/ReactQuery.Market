@@ -7,6 +7,11 @@ export interface SortOption {
   order?: SortOrder;
 }
 
+export const SORT_PARAMS = {
+  sortBy: 'sortBy',
+  order: 'order',
+} as const;
+
 export const SORT_OPTIONS: SortOption[] = [
   {
     label: 'По умолчанию',
