@@ -21,8 +21,21 @@
   }
 }
 
-.sort {
+.sortButton {
   grid-area: sort;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.sort {
+  display: none;
+
+  @include mq(md) {
+    grid-area: sort;
+    display: block;
+  }
 }
 
 .filterButton {
@@ -35,10 +48,10 @@
 }
 
 .filters {
-  grid-area: filter;
   display: none;
 
   @include mq(md) {
+    grid-area: filter;
     display: block;
   }
 }

@@ -1,16 +1,20 @@
 import React from 'react';
-import { Product, ProductsInCategory } from '@features/Products/types/products.types';
+import { Product, ProductsResponse } from '@features/Products/types/products.types';
+import { ProductCard } from '@features/Products/components/ProductCard/ProductCard';
 
 interface ProductGridProps {
-  data: ProductsInCategory;
+  productsResponse: ProductsResponse;
 }
 
-export const ProductGrid = ({ data }: ProductGridProps) => {
-  const { products } = data;
+export const ProductGrid = ({ productsResponse }: ProductGridProps) => {
+  const { products } = productsResponse;
+
   return (
     <ul>
       {products.map((product: Product) => (
-        <li>{product.title}</li>
+        <li key={product.id}>
+          <ProductCard product={product} />
+        </li>
       ))}
     </ul>
   );

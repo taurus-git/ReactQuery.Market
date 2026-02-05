@@ -12,7 +12,7 @@ export const DesktopMenu = ({ data }: DesktopMenuProps) => {
     <nav className={`${styles.nav}`}>
       <ul className={`${styles.menu}`}>
         {data.map(({ slug, name }: Category) => (
-          <li>
+          <li key={name}>
             <MenuItem name={name} to={`/products/category/${slug}`} className={`fw-medium`} />
           </li>
         ))}

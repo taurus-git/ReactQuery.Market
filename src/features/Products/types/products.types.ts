@@ -5,7 +5,7 @@ export interface Product {
   [key: string]: unknown;
 }
 
-export interface ProductsInCategory {
+export interface ProductsResponse {
   products: Product[];
   total: number;
   skip: number;

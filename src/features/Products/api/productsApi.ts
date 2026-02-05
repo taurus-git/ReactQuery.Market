@@ -1,16 +1,21 @@
 import { apiClient } from '@services/api/axios.config';
 import { PRODUCTS_ENDPOINTS } from './endpoints';
-import { Product, ProductsInCategory } from '@features/Products/types/products.types';
+import { Product, ProductsResponse } from '@features/Products/types/products.types';
 import { CategoryProductsParams } from '@features/Products/types/categories.types';
 
-export const fetchProducts = async (): Promise<ProductsInCategory> => {
-  const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS);
+export const fetchProducts = async (params: string): Promise<ProductsResponse> => {
+  if (!params) {
+    const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS);
+    return data;
+  }
+
+  const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.PRODUCTS}?${params}`);
   return data;
 };
 
 export const fetchCategoryProducts = async (
   params: CategoryProductsParams,
-): Promise<ProductsInCategory> => {
+): Promise<ProductsResponse> => {
   const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.CATEGORY}/${params.slug}`);
   return data;
 };
