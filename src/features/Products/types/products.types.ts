@@ -15,6 +15,7 @@ export interface ProductsResponse {
 }
 
 export interface FetchProductsParams {
+  category?: string;
   sortBy?: SortBy;
   order?: SortOrder;
   limit?: number;

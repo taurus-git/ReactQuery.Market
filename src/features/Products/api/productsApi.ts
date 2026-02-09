@@ -8,8 +8,21 @@ import {
 import { CategoryProductsParams } from '@features/Products/types/categories.types';
 
 export const fetchProducts = async (params: FetchProductsParams): Promise<ProductsResponse> => {
-  const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS, { params });
-  return data;
+  const { category, ...queryParams } = params;
+
+  try {
+    if (category) {
+      const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.CATEGORY}/${category}`, {
+        params: queryParams,
+      });
+      return data;
+    }
+    const { data } = await apiClient.get(PRODUCTS_ENDPOINTS.PRODUCTS, { params: queryParams });
+    return data;
+  } catch (error) {
+    console.error('Error fetching products with error', error);
+    throw error;
+  }
 };
 
 export const fetchCategoryProducts = async (

@@ -9,15 +9,17 @@ import { FullScreenPanel } from '@shared/ui/FullScreenPanel/FullScreenPanel';
 import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
 import { Sort } from '@features/Sort/components/Sort/Sort';
 import { Icon } from '@shared/ui/Icon/Icon';
-import { Filter } from '@features/Filter/Filter';
+import { Filter } from '@features/Filter/components/Filter/Filter';
 import { ProductGrid } from '@features/Products/components/ProductGrid/ProductGrid';
 import { useProducts } from '@features/Products/hooks/useProducts';
 import { QueryState } from '@shared/ui/QueryState';
 import { Pagination } from '@features/Pagination/Pagination';
 import { ShowMore } from '@features/ShowMore/ShowMore';
+import { useCategories } from '@features/Products/hooks/useCategories';
 
 export const HomePage = () => {
   const productsQuery = useProducts();
+  const categoriesQuery = useCategories();
   //const { data, isLoading, isError } = useCategoryProducts({ slug: 'smartphones' });
   /*const { data } = useCategory('groceries');*/
   //const { data, isLoading, isError } = useSingleProduct(5);
@@ -58,7 +60,9 @@ export const HomePage = () => {
             <FullScreenPanel>
               <CloseButton className={`position-absolute close`} onClose={handleToggleFilter} />
               <div className={`${styles.filterCategory}`}>
-                <Filter />
+                <QueryState query={categoriesQuery}>
+                  {(data) => <Filter filter={data} />}
+                </QueryState>
               </div>
             </FullScreenPanel>
           )}
@@ -67,7 +71,7 @@ export const HomePage = () => {
             <Sort /> {/*Make sort in [frame] For Desktop*/}
           </div>
           <aside className={`${styles.filters}`}>
-            <Filter />
+            <QueryState query={categoriesQuery}>{(data) => <Filter filter={data} />}</QueryState>
           </aside>
           {/*General components*/}
           <div className={`${styles.productList}`}>
