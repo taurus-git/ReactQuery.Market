@@ -15,7 +15,6 @@ export const SORT_PARAMS = {
 export const SORT_OPTIONS: SortOption[] = [
   {
     label: 'По умолчанию',
-    // sortBy и order не указаны = без сортировки
   },
   {
     label: 'Сначала дешевые',
