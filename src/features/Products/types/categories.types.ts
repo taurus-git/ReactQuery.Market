@@ -7,3 +7,7 @@ export interface Category {
 export interface CategoryProductsParams {
   slug: string;
 }
+
+export interface ProductsCategoryParams {
+  category?: string;
+}

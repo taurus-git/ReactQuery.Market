@@ -1,10 +1,13 @@
 export type SortBy = 'price' | 'rating' | 'title' | 'brand';
 export type SortOrder = 'asc' | 'desc';
 
-export interface SortOption {
-  label: string;
+export interface ProductsSortParams {
   sortBy?: SortBy;
   order?: SortOrder;
+}
+
+export interface SortOption extends ProductsSortParams {
+  label: string;
 }
 
 export const SORT_PARAMS = {

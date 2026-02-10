@@ -1,4 +1,6 @@
-import { SortBy, SortOrder } from '@features/Sort/types/sort.types';
+import { ProductsSortParams } from '@features/Sort/types/sort.types';
+import { ProductsCategoryParams } from '@features/Products/types/categories.types';
+import { ProductsPaginationParams } from '@features/Pagination/types/pagination.types';
 
 export interface Product {
   id: number;
@@ -14,10 +16,5 @@ export interface ProductsResponse {
   limit: number;
 }
 
-export interface FetchProductsParams {
-  category?: string;
-  sortBy?: SortBy;
-  order?: SortOrder;
-  limit?: number;
-  skip?: number;
-}
+export interface FetchProductsParams
+  extends ProductsSortParams, ProductsCategoryParams, ProductsPaginationParams {}
