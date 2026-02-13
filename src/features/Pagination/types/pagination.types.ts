@@ -12,3 +12,8 @@ export type PaginationPage = number | string;
 
 export const PaginateNavTypes = { prev: 'prev', next: 'next' } as const;
 export type PaginateNavType = (typeof PaginateNavTypes)[keyof typeof PaginateNavTypes];
+
+export interface PaginationContext {
+  currentPage: number;
+  totalPages: number;
+}

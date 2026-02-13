@@ -18,27 +18,23 @@ import { ShowMore } from '@features/ShowMore/ShowMore';
 import { useCategories } from '@features/Products/hooks/useCategories';
 import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOptions';
 import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
-import { PaginateNav } from '@features/Pagination/components/PaginateNav/PaginateNav';
-import { PaginateNavTypes } from '@features/Pagination/types/pagination.types';
-import { ITEMS_PER_PAGES } from '@features/Pagination/constants/pagination';
-import { getPagination } from '@features/Pagination/utils/paginationUtils';
+/*import { PaginateNav } from '@features/Pagination/components/PaginateNav/PaginateNav';
+import { PaginateNavTypes, PaginationContext } from '@features/Pagination/types/pagination.types';*/
+import { PaginationContext } from '@features/Pagination/types/pagination.types';
 
 export const HomePage = () => {
-  const { limit, skip, currentPage, setPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
+  const { limit, skip, currentPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
   const productsQuery = useProducts({ limit, skip, currentPage });
   const categoriesQuery = useCategories();
 
-  const { data } = productsQuery;
-  const itemsPerPage = HOME_PAGE_LIMIT ? HOME_PAGE_LIMIT : ITEMS_PER_PAGES;
-  let totalPages = 0;
+  const totalPages = productsQuery.data?.total
+    ? Math.ceil(productsQuery.data.total / HOME_PAGE_LIMIT)
+    : 0;
 
-  if (data) {
-    totalPages = data.total ? Math.ceil(data.total / itemsPerPage) : 0;
-  }
-  if (totalPages <= 1) return;
-
-  const pagination = getPagination({ currentPage, totalPages });
-
+  const paginationContext: PaginationContext = {
+    currentPage: currentPage,
+    totalPages: totalPages,
+  };
 
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -94,31 +90,21 @@ export const HomePage = () => {
               {(data) => <ProductGrid productsResponse={data} />}
             </QueryState>
           </div>
-          <div className={`${styles.pagination}`}>
-            <QueryState query={productsQuery}>
-              {() => (
-                <PaginateNav
-                  type={PaginateNavTypes.prev}
-                  setPage={setPage}
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                />
-              )}
-            </QueryState>
-            <QueryState query={productsQuery}>
-              {(data) => (
-                <Pagination
-                  productsResponse={data}
-                  currentPage={currentPage}
-                  setPage={setPage}
-                  currentLimit={HOME_PAGE_LIMIT}
-                />
-              )}
-            </QueryState>
-          </div>
-          <div className={`${styles.showMore}`}>
-            <ShowMore />
-          </div>
+          {totalPages > 1 && (
+            <>
+              <div className={`${styles.pagination}`}>
+                {/*<QueryState query={productsQuery}>
+              {() => <PaginateNav type={PaginateNavTypes.prev} />}
+            </QueryState>*/}
+                <QueryState query={productsQuery}>
+                  {() => <Pagination context={paginationContext} />}
+                </QueryState>
+              </div>
+              <div className={`${styles.showMore}`}>
+                <ShowMore />
+              </div>
+            </>
+          )}
         </div>
         {/*<h3>Filters</h3>
         <Fieldset>

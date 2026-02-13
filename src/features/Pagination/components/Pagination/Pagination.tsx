@@ -1,99 +1,67 @@
 import React from 'react';
 import styles from './Pagination.module.scss';
-import { Icon } from '@shared/ui/Icon/Icon';
-import { ProductsResponse } from '@features/Products/types/products.types';
-import {
-  canGoPrev,
-  getPagination,
-  getPaginationNavPage,
-  isPaginationNavDisabled,
-} from '@features/Pagination/utils/paginationUtils';
-import { dots, ITEMS_PER_PAGES } from '@features/Pagination/constants/pagination';
-import { PaginateNavType, PaginateNavTypes } from '@features/Pagination/types/pagination.types';
-import { PaginateNav } from '@features/Pagination/components/PaginateNav/PaginateNav';
+import { dots } from '@features/Pagination/constants/pagination';
+import { useSetPage } from '@features/Pagination/hooks/useSetPage';
+import { PaginationContext } from '@features/Pagination/types/pagination.types';
+import { createPagination } from '@features/Pagination/utils/paginationUtils';
 
 interface PaginationProps {
-  productsResponse: ProductsResponse;
-  currentPage: number;
-  setPage: (page: number) => void;
-  currentLimit: number;
+  context: PaginationContext;
 }
 
-export const Pagination = ({
-  productsResponse,
-  currentPage,
-  setPage,
-  currentLimit,
-}: PaginationProps) => {
-  const { total } = productsResponse;
-  const itemsPerPage = currentLimit ? currentLimit : ITEMS_PER_PAGES;
-  const totalPages = total ? Math.ceil(total / itemsPerPage) : 0;
+export const Pagination = ({ context }: PaginationProps) => {
+  const { currentPage } = context;
+  const pagination = createPagination(context);
+  const pages = pagination.getPagination();
 
-  if (totalPages <= 1) return;
+  const paginateClassName = (page: number) => {
+    let buttonClass = `${styles.paginationButton}`;
+    if (page === currentPage) {
+      buttonClass += ` ${styles.paginationButtonActive}`;
+    }
 
-  const pagination = getPagination({ currentPage, totalPages });
+    return buttonClass;
+  };
 
-
+  const { setPage } = useSetPage();
 
   return (
     <nav>
       <ul className={`${styles.pagination}`}>
-        <li className={`${styles.paginationItem}`}>
+        {/*<li className={`${styles.paginationItem}`}>
           <PaginateNav
             type={PaginateNavTypes.prev}
             setPage={setPage}
             currentPage={currentPage}
             totalPages={totalPages}
           />
-        </li>
-
-        {pagination.map((page) => {
+        </li>*/}
+        {pages.map((page) => {
           if (page === dots) {
             return <span>{dots}</span>;
           }
-
-          const buttonClassName = () => {
-            let buttonClass = `${styles.paginationButton}`;
-            if (page === currentPage) {
-              buttonClass += ` ${styles.paginationButtonActive}`;
-            }
-
-            return buttonClass;
-          };
-
-          const buttonDisabled = () => {
-            switch (currentPage) {
-              case page:
-                return true;
-              case totalPages:
-                return true;
-              default:
-                return false;
-            }
-          };
 
           return (
             <li key={page}>
               <button
                 type={'button'}
-                className={buttonClassName()}
+                className={paginateClassName(Number(page))}
                 onClick={() => setPage(Number(page))}
-                disabled={buttonDisabled()}
+                disabled={currentPage == page}
               >
                 {page}
               </button>
             </li>
           );
         })}
-
-        <li>
+        {/*<li>
           <PaginateNav
             type={PaginateNavTypes.next}
             setPage={setPage}
             currentPage={currentPage}
             totalPages={totalPages}
           />
-        </li>
+        </li>*/}
       </ul>
     </nav>
   );

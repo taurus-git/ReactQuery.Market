@@ -1,10 +1,6 @@
-import React from 'react';
+/*import React from 'react';
 import styles from './PaginateNav.module.scss';
-import { Icon } from '@shared/ui/Icon/Icon';
-import {
-  getPaginationNavPage,
-  isPaginationNavDisabled,
-} from '@features/Pagination/utils/paginationUtils';
+import { Icon } from '@shared/ui/Icon/Icon';*/
 import { PaginateNavType } from '../../types/pagination.types';
 
 interface PaginateNavProps {
@@ -15,7 +11,9 @@ interface PaginateNavProps {
 }
 
 export const PaginateNav = ({ type, setPage, currentPage, totalPages }: PaginateNavProps) => {
-  const onPaginationClick = (type: PaginateNavType, currentPage: number) => {
+  console.log(type, setPage, currentPage, totalPages);
+
+  /*const onPaginationClick = (type: PaginateNavType, currentPage: number) => {
     const navPage = getPaginationNavPage(type, currentPage);
     setPage(navPage);
   };
@@ -29,5 +27,5 @@ export const PaginateNav = ({ type, setPage, currentPage, totalPages }: Paginate
     >
       <Icon name={'shevron'} />
     </button>
-  );
+  );*/
 };
