@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SORT_PARAMS, SortBy, SortOption, SortOrder } from '@features/Sort/types/sort.types';
+import { PAGINATION_PARAMS } from '@features/Pagination/types/pagination.types';
 
 export const useSort = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,6 +21,7 @@ export const useSort = () => {
         const params = new URLSearchParams(prev);
 
         if (sortBy && order) {
+          params.delete(PAGINATION_PARAMS.page);
           params.set(SORT_PARAMS.sortBy, sortBy);
           params.set(SORT_PARAMS.order, order);
         } else {

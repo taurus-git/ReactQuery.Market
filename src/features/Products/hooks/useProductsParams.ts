@@ -15,7 +15,8 @@ export const useProductsParams = (params?: ProductsPaginationParams): FetchProdu
       category,
       limit: params?.limit,
       skip: params?.skip,
+      page: params?.currentPage,
     }),
-    [sortBy, order, category, params?.limit, params?.skip],
+    [sortBy, order, category, params?.limit, params?.skip, params?.currentPage],
   );
 };

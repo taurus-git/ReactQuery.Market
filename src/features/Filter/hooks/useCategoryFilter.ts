@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { FILTER_PARAMS } from '@features/Filter/types/filter.types';
 import { SORT_PARAMS } from '@features/Sort/types/sort.types';
+import { PAGINATION_PARAMS } from '@features/Pagination/types/pagination.types';
 
 export const useCategoryFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,6 +20,7 @@ export const useCategoryFilter = () => {
         if (slug) {
           params.delete(SORT_PARAMS.sortBy);
           params.delete(SORT_PARAMS.order);
+          params.delete(PAGINATION_PARAMS.page);
           params.set(FILTER_PARAMS.category, slug);
         } else {
           params.delete(FILTER_PARAMS.category);

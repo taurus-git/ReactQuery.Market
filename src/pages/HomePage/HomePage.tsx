@@ -13,17 +13,32 @@ import { Filter } from '@features/Filter/components/Filter/Filter';
 import { ProductGrid } from '@features/Products/components/ProductGrid/ProductGrid';
 import { useProducts } from '@features/Products/hooks/useProducts';
 import { QueryState } from '@shared/ui/QueryState';
-import { Pagination } from '@features/Pagination/Pagination';
+import { Pagination } from '@features/Pagination/components/Pagination/Pagination';
 import { ShowMore } from '@features/ShowMore/ShowMore';
 import { useCategories } from '@features/Products/hooks/useCategories';
+import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOptions';
+import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
+import { PaginateNav } from '@features/Pagination/components/PaginateNav/PaginateNav';
+import { PaginateNavTypes } from '@features/Pagination/types/pagination.types';
+import { ITEMS_PER_PAGES } from '@features/Pagination/constants/pagination';
+import { getPagination } from '@features/Pagination/utils/paginationUtils';
 
 export const HomePage = () => {
-  const productsQuery = useProducts();
+  const { limit, skip, currentPage, setPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
+  const productsQuery = useProducts({ limit, skip, currentPage });
   const categoriesQuery = useCategories();
-  //const { data, isLoading, isError } = useCategoryProducts({ slug: 'smartphones' });
-  /*const { data } = useCategory('groceries');*/
-  //const { data, isLoading, isError } = useSingleProduct(5);
-  // const value = '';
+
+  const { data } = productsQuery;
+  const itemsPerPage = HOME_PAGE_LIMIT ? HOME_PAGE_LIMIT : ITEMS_PER_PAGES;
+  let totalPages = 0;
+
+  if (data) {
+    totalPages = data.total ? Math.ceil(data.total / itemsPerPage) : 0;
+  }
+  if (totalPages <= 1) return;
+
+  const pagination = getPagination({ currentPage, totalPages });
+
 
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -80,7 +95,26 @@ export const HomePage = () => {
             </QueryState>
           </div>
           <div className={`${styles.pagination}`}>
-            <Pagination />
+            <QueryState query={productsQuery}>
+              {() => (
+                <PaginateNav
+                  type={PaginateNavTypes.prev}
+                  setPage={setPage}
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                />
+              )}
+            </QueryState>
+            <QueryState query={productsQuery}>
+              {(data) => (
+                <Pagination
+                  productsResponse={data}
+                  currentPage={currentPage}
+                  setPage={setPage}
+                  currentLimit={HOME_PAGE_LIMIT}
+                />
+              )}
+            </QueryState>
           </div>
           <div className={`${styles.showMore}`}>
             <ShowMore />
