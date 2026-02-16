@@ -62,7 +62,7 @@ export const HomePage = () => {
           {isSortOpen && (
             <FullScreenPanel>
               <CloseButton className={`position-absolute close`} onClose={handleToggleSort} />
-              <Sort />
+              <Sort onSelect={handleToggleSort} />
             </FullScreenPanel>
           )}
           {isFilterOpen && (
@@ -70,7 +70,7 @@ export const HomePage = () => {
               <CloseButton className={`position-absolute close`} onClose={handleToggleFilter} />
               <div className={`${styles.filterCategory}`}>
                 <QueryState query={categoriesQuery}>
-                  {(data) => <Filter filter={data} />}
+                  {(data) => <Filter onSelect={handleToggleFilter} filter={data} />}
                 </QueryState>
               </div>
             </FullScreenPanel>

@@ -6,14 +6,20 @@ import { ResetFilters } from '@features/Filter/components/ResetFilters/ResetFilt
 
 interface FilterProps {
   filter: Category[];
+  onSelect?: () => void;
 }
 
-export const Filter = ({ filter }: FilterProps) => {
+export const Filter = ({ filter, onSelect }: FilterProps) => {
   const { category, setCategory } = useCategoryFilter();
+
+  const handleChange = (slug: string) => {
+    setCategory(slug);
+    onSelect?.();
+  };
 
   return (
     <fieldset>
-      <ResetFilters />
+      <ResetFilters onClick={onSelect} />
       <legend>Категории</legend>
 
       {filter.map(({ slug, name }) => (
@@ -23,7 +29,7 @@ export const Filter = ({ filter }: FilterProps) => {
             name={FILTER_PARAMS.category}
             value={slug}
             checked={category === slug}
-            onChange={() => setCategory(slug)}
+            onChange={() => handleChange(slug)}
           />
           {name}
         </label>

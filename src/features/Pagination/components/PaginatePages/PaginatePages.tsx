@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './PaginatePages.module.scss';
 import { PaginationContext } from '@features/Pagination/types/pagination.types';
+import styles from './PaginatePages.module.scss';
 import { createPagination } from '@features/Pagination/utils/paginationUtils';
 import { useSetPage } from '@features/Pagination/hooks/useSetPage';
 import { dots } from '@features/Pagination/constants/pagination';
