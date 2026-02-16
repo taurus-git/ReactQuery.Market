@@ -6,7 +6,6 @@ export const useSetPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const setPage = useCallback(
     (newPage: number) => {
-      console.log(newPage);
       setSearchParams((prev) => {
         const params = new URLSearchParams(prev);
 

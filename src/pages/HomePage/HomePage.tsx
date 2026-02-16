@@ -17,10 +17,8 @@ import { Pagination } from '@features/Pagination/components/Pagination/Paginatio
 import { ShowMore } from '@features/ShowMore/ShowMore';
 import { useCategories } from '@features/Products/hooks/useCategories';
 import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOptions';
-import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
-/*import { PaginateNav } from '@features/Pagination/components/PaginateNav/PaginateNav';
-import { PaginateNavTypes, PaginationContext } from '@features/Pagination/types/pagination.types';*/
 import { PaginationContext } from '@features/Pagination/types/pagination.types';
+import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
 
 export const HomePage = () => {
   const { limit, skip, currentPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
@@ -93,9 +91,6 @@ export const HomePage = () => {
           {totalPages > 1 && (
             <>
               <div className={`${styles.pagination}`}>
-                {/*<QueryState query={productsQuery}>
-              {() => <PaginateNav type={PaginateNavTypes.prev} />}
-            </QueryState>*/}
                 <QueryState query={productsQuery}>
                   {() => <Pagination context={paginationContext} />}
                 </QueryState>

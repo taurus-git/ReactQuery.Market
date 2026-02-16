@@ -6,10 +6,6 @@ import {
 } from '@features/Pagination/types/pagination.types';
 import { dots } from '@features/Pagination/constants/pagination';
 
-export const getPaginationPageClass = () => {};
-
-export const isPaginationPageDisabled = () => {};
-
 export const createPagination = (paginationContext: PaginationContext) => {
   const { currentPage, totalPages } = paginationContext;
 
@@ -41,14 +37,15 @@ export const createPagination = (paginationContext: PaginationContext) => {
   };
 
   const getPagination = () => {
-    switch (totalPages >= 2) {
-      case totalPages <= 5:
-        return Array.from({ length: totalPages }, (_, i) => i + 1);
-      case totalPages > 5:
-        return getPaginationWithDots();
-      default:
-        return [];
+    if (totalPages === 1) {
+      return [1];
     }
+
+    if (totalPages <= 5) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    return getPaginationWithDots();
   };
 
   const isPaginationNavDisabled = (type: PaginateNavType) => {

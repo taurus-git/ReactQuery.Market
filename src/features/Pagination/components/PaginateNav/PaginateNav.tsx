@@ -1,31 +1,49 @@
-/*import React from 'react';
+import React from 'react';
 import styles from './PaginateNav.module.scss';
-import { Icon } from '@shared/ui/Icon/Icon';*/
-import { PaginateNavType } from '../../types/pagination.types';
+import { Icon } from '@shared/ui/Icon/Icon';
+import { PaginateNavType, PaginateNavTypes, PaginationContext } from '../../types/pagination.types';
+import { createPagination } from '@features/Pagination/utils/paginationUtils';
+import { useSetPage } from '@features/Pagination/hooks/useSetPage';
 
 interface PaginateNavProps {
+  context: PaginationContext;
   type: PaginateNavType;
-  setPage: (page: number) => void;
-  currentPage: number;
-  totalPages: number;
 }
 
-export const PaginateNav = ({ type, setPage, currentPage, totalPages }: PaginateNavProps) => {
-  console.log(type, setPage, currentPage, totalPages);
+export const PaginateNav = ({ context, type }: PaginateNavProps) => {
+  const { currentPage, totalPages } = context;
+  const pagination = createPagination(context);
+  const { setPage } = useSetPage();
 
-  /*const onPaginationClick = (type: PaginateNavType, currentPage: number) => {
-    const navPage = getPaginationNavPage(type, currentPage);
-    setPage(navPage);
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setPage(currentPage + 1);
+    }
+  };
+
+  const onPaginationNavClick = () => {
+    if (type === PaginateNavTypes.prev) {
+      goToPrevPage();
+    }
+    if (type === PaginateNavTypes.next) {
+      goToNextPage();
+    }
   };
 
   return (
     <button
       className={`${styles.paginationNav}`}
       type={'button'}
-      disabled={isPaginationNavDisabled(type, currentPage, totalPages)}
-      onClick={() => onPaginationClick(type, currentPage)}
+      disabled={pagination.isPaginationNavDisabled(type)}
+      onClick={() => onPaginationNavClick()}
     >
       <Icon name={'shevron'} />
     </button>
-  );*/
+  );
 };
