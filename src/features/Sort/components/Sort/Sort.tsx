@@ -1,19 +1,16 @@
 import React, { useCallback } from 'react';
-import styles from './Sort.module.scss';
+/*import styles from './Sort.module.scss';*/
 import { SORT_OPTIONS, SortOption } from '@features/Sort/types/sort.types';
 import { useSort } from '@features/Sort/hooks/useSort';
-import { Icon } from '@shared/ui/Icon/Icon';
+import { RadioButton } from '@shared/ui/RadioButton/RadioButton';
 
 interface SortProps {
-  children?: React.ReactNode;
   onSelect?: () => void;
   className?: string;
 }
 
-export const Sort = ({ children, onSelect, className }: SortProps) => {
-  const { sortBy, order, setSort, isSortButtonActive } = useSort();
-
-  console.log(sortBy, order);
+export const Sort = ({ onSelect, className }: SortProps) => {
+  const { setSort, isSortButtonActive } = useSort();
 
   const handleClick = useCallback(
     (option: SortOption) => {
@@ -25,10 +22,7 @@ export const Sort = ({ children, onSelect, className }: SortProps) => {
 
   const getSortButtonAttributes = (option: SortOption) => {
     const isSortActive = isSortButtonActive(option);
-
-    const sortButtonClassName = [styles.sort, className, isSortActive && styles.sortActive]
-      .filter((v): v is string => !!v)
-      .join(' ');
+    const sortButtonClassName = [className].filter((v): v is string => !!v).join(' ');
 
     return { isSortActive, sortButtonClassName };
   };
@@ -37,16 +31,16 @@ export const Sort = ({ children, onSelect, className }: SortProps) => {
     <>
       {SORT_OPTIONS.map((option) => {
         const { isSortActive, sortButtonClassName } = getSortButtonAttributes(option);
+
         return (
-          <button
+          <RadioButton
             key={`${option.sortBy}-${option.order}`}
             className={sortButtonClassName}
             onClick={() => handleClick(option)}
+            active={isSortActive}
           >
-            {children}
-            <Icon name={isSortActive ? 'circle_filled' : 'circle'} />
             <span>{option.label}</span>
-          </button>
+          </RadioButton>
         );
       })}
     </>
