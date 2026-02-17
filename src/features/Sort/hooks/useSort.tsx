@@ -7,11 +7,11 @@ export const useSort = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sortBy = useMemo(
-    () => searchParams.get(SORT_PARAMS.sortBy) as SortBy | undefined,
+    () => (searchParams.get(SORT_PARAMS.sortBy) as SortBy) ?? undefined,
     [searchParams],
   );
   const order = useMemo(
-    () => searchParams.get(SORT_PARAMS.order) as SortOrder | undefined,
+    () => (searchParams.get(SORT_PARAMS.order) as SortOrder) ?? undefined,
     [searchParams],
   );
 
@@ -35,5 +35,9 @@ export const useSort = () => {
     [searchParams],
   );
 
-  return { sortBy, order, setSort };
+  const isSortButtonActive = (option: SortOption) => {
+    return option.sortBy === sortBy && option.order === order;
+  };
+
+  return { sortBy, order, setSort, isSortButtonActive };
 };

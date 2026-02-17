@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './HomePage.module.scss';
 import { Container } from '@shared/layout/Container/Container';
 /*
 import { Checkbox } from '@shared/ui/Checkbox/Checkbox';
 import { Counter } from '@shared/ui/Counter/Counter';*/
 import { HeroSlider } from '@pages/HomePage/components/HeroSlider/HeroSlider';
-import { FullScreenPanel } from '@shared/ui/FullScreenPanel/FullScreenPanel';
-import { CloseButton } from '@shared/ui/CloseButton/CloseButton';
 import { Sort } from '@features/Sort/components/Sort/Sort';
-import { Icon } from '@shared/ui/Icon/Icon';
 import { Filter } from '@features/Filter/components/Filter/Filter';
 import { ProductGrid } from '@features/Products/components/ProductGrid/ProductGrid';
 import { useProducts } from '@features/Products/hooks/useProducts';
@@ -19,6 +16,7 @@ import { useCategories } from '@features/Products/hooks/useCategories';
 import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOptions';
 import { PaginationContext } from '@features/Pagination/types/pagination.types';
 import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
+import { CatalogControls } from '@pages/HomePage/components/CatalogControls/CatalogControls';
 
 export const HomePage = () => {
   const { limit, skip, currentPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
@@ -34,50 +32,15 @@ export const HomePage = () => {
     totalPages: totalPages,
   };
 
-  const [isSortOpen, setIsSortOpen] = useState(false);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  const handleToggleSort = () => {
-    setIsSortOpen((prev) => !prev);
-  };
-
-  const handleToggleFilter = () => {
-    setIsFilterOpen((prev) => !prev);
-  };
-
   return (
     <div>
       <HeroSlider />
+      <CatalogControls />
       <Container>
         <div className={`${styles.homeWrapper}`}>
-          {/*Mobile buttons*/}
-          <button className={`${styles.sortButton}`} onClick={handleToggleSort}>
-            <div>Сорировать</div>
-            <Icon name={'shevron'} />
-          </button>
-          <button className={`${styles.filterButton}`} onClick={handleToggleFilter}>
-            <div>Фильтры</div>
-          </button>
-          {/*Mobile modal*/}
-          {isSortOpen && (
-            <FullScreenPanel>
-              <CloseButton className={`position-absolute close`} onClose={handleToggleSort} />
-              <Sort onSelect={handleToggleSort} />
-            </FullScreenPanel>
-          )}
-          {isFilterOpen && (
-            <FullScreenPanel>
-              <CloseButton className={`position-absolute close`} onClose={handleToggleFilter} />
-              <div className={`${styles.filterCategory}`}>
-                <QueryState query={categoriesQuery}>
-                  {(data) => <Filter onSelect={handleToggleFilter} filter={data} />}
-                </QueryState>
-              </div>
-            </FullScreenPanel>
-          )}
           {/*Desktop sort, filters*/}
           <div className={`${styles.sort}`}>
-            <Sort /> {/*Make sort in [frame] For Desktop*/}
+            <Sort /> {/* SortDropdown will be here */}
           </div>
           <aside className={`${styles.filters}`}>
             <QueryState query={categoriesQuery}>{(data) => <Filter filter={data} />}</QueryState>
@@ -100,8 +63,8 @@ export const HomePage = () => {
               </div>
             </>
           )}
-        </div>
-        {/*<h3>Filters</h3>
+
+          {/*<h3>Filters</h3>
         <Fieldset>
           <Legend>Бренды</Legend>
           <Checkbox
@@ -135,9 +98,10 @@ export const HomePage = () => {
             <Counter value={995} />
           </Checkbox>
         </Fieldset>*/}
-        {/*    <QueryState isLoading={isLoading} isError={isError}>
+          {/*    <QueryState isLoading={isLoading} isError={isError}>
               {data && <ProductGrid data={data} />}
       </QueryState>*/}
+        </div>
       </Container>
     </div>
   );

@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
-    "sort filter"
     "products products"
     "pagination pagination"
     "showMore showMore";
@@ -21,29 +20,12 @@
   }
 }
 
-.sortButton {
-  grid-area: sort;
-
-  @include mq(md) {
-    display: none;
-  }
-}
-
 .sort {
   display: none;
 
   @include mq(md) {
     grid-area: sort;
     display: block;
-  }
-}
-
-.filterButton {
-  display: block;
-  grid-area: filter;
-
-  @include mq(md) {
-    display: none;
   }
 }
 
@@ -54,10 +36,6 @@
     grid-area: filter;
     display: block;
   }
-}
-
-.filterCategory {
-
 }
 
 .productList {
