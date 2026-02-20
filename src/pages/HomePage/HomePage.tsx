@@ -5,7 +5,6 @@ import { Container } from '@shared/layout/Container/Container';
 import { Checkbox } from '@shared/ui/Checkbox/Checkbox';
 import { Counter } from '@shared/ui/Counter/Counter';*/
 import { HeroSlider } from '@pages/HomePage/components/HeroSlider/HeroSlider';
-import { Sort } from '@features/Sort/components/Sort/Sort';
 import { Filter } from '@features/Filter/components/Filter/Filter';
 import { ProductGrid } from '@features/Products/components/ProductGrid/ProductGrid';
 import { useProducts } from '@features/Products/hooks/useProducts';
@@ -17,6 +16,7 @@ import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOp
 import { PaginationContext } from '@features/Pagination/types/pagination.types';
 import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
 import { CatalogControls } from '@pages/HomePage/components/CatalogControls/CatalogControls';
+import { SortDropdown } from '@features/Sort/components/SortDropdown/SortDropdown';
 
 export const HomePage = () => {
   const { limit, skip, currentPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
@@ -40,7 +40,7 @@ export const HomePage = () => {
         <div className={`${styles.homeWrapper}`}>
           {/*Desktop sort, filters*/}
           <div className={`${styles.sort}`}>
-            <Sort /> {/* SortDropdown will be here */}
+            <SortDropdown />
           </div>
           <aside className={`${styles.filters}`}>
             <QueryState query={categoriesQuery}>{(data) => <Filter filter={data} />}</QueryState>
