@@ -47,7 +47,7 @@ export const CatalogControls = () => {
       {isFilterOpen && (
         <FullScreenPanel>
           <CloseButton className={`position-absolute close`} onClose={handleToggleFilter} />
-          <div className={`${styles.filterCategory}`}>
+          <div className={`${styles.filterWrapper} h-100 p-12 d-flex flex-column`}>
             <QueryState query={categoriesQuery}>
               {(data) => <Filter onSelect={handleToggleFilter} filter={data} />}
             </QueryState>

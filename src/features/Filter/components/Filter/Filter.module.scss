@@ -1,0 +1,24 @@
+@use "@styles/abstracts/mixins" as *;
+
+.resetFilter {
+  margin-top: var(--spacing-2-5x);
+
+  @include mq(md) {
+    margin-top: 0;
+    margin-bottom: var(--spacing-3x);
+  }
+}
+
+.filterLegend {
+  font-size: var(--font-size-base);
+
+  @include mq(md) {
+    margin-bottom: var(--spacing-3x);
+  }
+}
+
+.filterButton {
+  @include mq(md) {
+    margin-bottom: var(--spacing-1x);
+  }
+}

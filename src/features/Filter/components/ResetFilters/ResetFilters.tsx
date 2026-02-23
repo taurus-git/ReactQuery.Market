@@ -3,9 +3,11 @@ import { useResetFilters } from '@features/Filter/hooks/useResetFilters';
 
 interface ResetFiltersProps {
   onClick?: () => void;
+  className?: string;
+  disabled?: boolean;
 }
 
-export const ResetFilters = ({ onClick }: ResetFiltersProps) => {
+export const ResetFilters = ({ className, disabled, onClick }: ResetFiltersProps) => {
   const { resetFilters } = useResetFilters();
 
   const handleReset = () => {
@@ -13,5 +15,9 @@ export const ResetFilters = ({ onClick }: ResetFiltersProps) => {
     onClick?.();
   };
 
-  return <button onClick={handleReset}>Сбросить фильтр</button>;
+  return (
+    <button className={className ? className : ''} disabled={disabled} onClick={handleReset}>
+      Сбросить фильтр
+    </button>
+  );
 };
