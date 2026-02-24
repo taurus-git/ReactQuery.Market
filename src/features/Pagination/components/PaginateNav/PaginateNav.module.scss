@@ -1,3 +1,5 @@
+@use "@styles/abstracts/mixins" as *;
+
 .paginationNav {
   aspect-ratio: 1;
   min-width: 4rem;
@@ -7,5 +9,20 @@
   &:disabled {
     background-color: var(--color-light-gray);
     border: none;
+  }
+
+  @include mq(md) {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border: none;
+    border-radius: unset;
+
+    &:disabled {
+      background-color: var(--color-black);
+
+      svg {
+        color: var(--color-dark-grey);
+      }
+    }
   }
 }

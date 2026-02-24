@@ -1,5 +1,11 @@
+@use "@styles/abstracts/mixins" as *;
+
 .paginationPages {
-  gap: var(--spacing-1x)
+  gap: var(--spacing-1x);
+
+  @include mq(md) {
+    gap: var(--spacing-2x);
+  }
 }
 
 .paginationButton {
@@ -9,11 +15,22 @@
   border: 1px solid var(--color-gray);
   border-radius: 4px;
 
-
+  @include mq(md) {
+    min-width: unset;
+    border: none;
+    border-radius: unset;
+    font-weight: var(--font-weight-bold);
+  }
 }
 
 .paginationButtonActive {
   background-color: var(--color-black);
   color: var(--color-white);
   border: none;
+
+  @include mq(md) {
+    background-color: unset;
+    color: var(--color-red);
+  }
 }
+
