@@ -1,6 +1,6 @@
 import React from 'react';
-import { PaginationContext } from '@features/Pagination/types/pagination.types';
 import styles from './PaginatePages.module.scss';
+import { PaginationContext } from '@features/Pagination/types/pagination.types';
 import { createPagination } from '@features/Pagination/utils/paginationUtils';
 import { useSetPage } from '@features/Pagination/hooks/useSetPage';
 import { dots } from '@features/Pagination/constants/pagination';
@@ -15,7 +15,7 @@ export const PaginatePages = ({ context }: PaginatePagesProps) => {
   const pages = pagination.getPagination();
 
   const paginateClassName = (page: number) => {
-    let buttonClass = `${styles.paginationButton}`;
+    let buttonClass = `${styles.paginationButton} d-flex justify-center align-center`;
     if (page === currentPage) {
       buttonClass += ` ${styles.paginationButtonActive}`;
     }
@@ -27,7 +27,7 @@ export const PaginatePages = ({ context }: PaginatePagesProps) => {
 
   return (
     <nav>
-      <ul className={`${styles.pagination}`}>
+      <ul className={`${styles.paginationPages} d-flex align-center`}>
         {pages.map((page) => {
           if (page === dots) {
             return <span key={page}>{dots}</span>;

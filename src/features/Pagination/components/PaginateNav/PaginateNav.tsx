@@ -36,14 +36,23 @@ export const PaginateNav = ({ context, type }: PaginateNavProps) => {
     }
   };
 
+  const rotateAngle = () => {
+    if (type === PaginateNavTypes.prev) {
+      return 90;
+    }
+    if (type === PaginateNavTypes.next) {
+      return -90;
+    }
+  };
+
   return (
     <button
-      className={`${styles.paginationNav}`}
+      className={`${styles.paginationNav} d-flex justify-center align-center`}
       type={'button'}
       disabled={pagination.isPaginationNavDisabled(type)}
       onClick={() => onPaginationNavClick()}
     >
-      <Icon name={'shevron'} />
+      <Icon name={'shevron'} size={14} rotate={rotateAngle()} />
     </button>
   );
 };

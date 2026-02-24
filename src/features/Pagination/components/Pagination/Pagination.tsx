@@ -10,7 +10,7 @@ interface PaginationProps {
 
 export const Pagination = ({ context }: PaginationProps) => {
   return (
-    <div className={`${styles.pagination}`}>
+    <div className={`${styles.pagination} d-flex justify-center align-center flex-wrap`}>
       <PaginateNav context={context} type={PaginateNavTypes.prev} />
       <PaginatePages context={context} />
       <PaginateNav context={context} type={PaginateNavTypes.next} />

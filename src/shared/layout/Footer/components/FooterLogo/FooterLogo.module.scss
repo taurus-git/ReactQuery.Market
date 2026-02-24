@@ -5,6 +5,7 @@
   @include mq(md) {
     display: inline-block;
     grid-area: logo;
+    width: fit-content;
   }
 
   img {
