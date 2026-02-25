@@ -23,11 +23,10 @@ export const MobileNavigation = ({ closeMenu, toggleOpen, city }: MobileNavigati
       className={`h-screen position-fixed w-75 d-flex flex-column justify-between ${styles.menu}`}
     >
       <CloseButton onClose={closeMenu} className={`position-absolute close`} />
-      <div>
-        <QueryState query={categoriesQuery}>
-          {(data) => <MobileMenu data={data} onClose={closeMenu} />}
-        </QueryState>
-      </div>
+
+      <QueryState query={categoriesQuery}>
+        {(data) => <MobileMenu data={data} onClose={closeMenu} />}
+      </QueryState>
 
       <div className={`d-flex flex-column justify-center align-center ${styles.linksWrapper}`}>
         <div className={`w-100 d-flex flex-column justify-center align-center ${styles.actions}`}>

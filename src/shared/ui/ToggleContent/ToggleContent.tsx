@@ -13,6 +13,7 @@ export const ToggleContent = ({ title, children, className }: ToggleContentProps
   const handleClick = () => setIsOpen((prev) => !prev);
 
   const toggleClass = isOpen ? styles.open : '';
+  const iconClass = isOpen ? 'rotate-180' : '';
 
   return (
     <div className={`${styles.toggleSection} ${toggleClass} ${className}`}>
@@ -20,7 +21,7 @@ export const ToggleContent = ({ title, children, className }: ToggleContentProps
         <button className={`position-relative ${styles.action}`} onClick={handleClick}>
           <span className={`${styles.actionText} fw-bold`}>{title}</span>
           <span className={`${styles.actionIcon}`}>
-            <Icon name={'shevron'} size={10} />
+            <Icon name={'shevron'} size={10} className={iconClass} />
           </span>
         </button>
       </div>

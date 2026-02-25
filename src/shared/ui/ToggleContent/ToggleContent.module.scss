@@ -60,6 +60,10 @@
 }
 
 .actionIcon {
+  svg {
+    transition: transform .2s var(--ease-in-out), opacity .2s var(--ease-in-out);
+  }
+
   @include mq(md) {
     display: none;
   }

@@ -19,7 +19,12 @@ export const SortDropdown = ({ className }: SortDropdownProps) => {
 
   const activeLabel = activeOption?.label ?? SORT_OPTIONS[0].label;
 
-  const toggle = () => setIsOpen((prev) => !prev);
+  const toggle = () => {
+    setIsOpen((prev) => {
+      console.log(prev);
+      return !prev;
+    });
+  };
 
   const handleSelect = (option: SortOption) => {
     setSort(option);
@@ -44,7 +49,7 @@ export const SortDropdown = ({ className }: SortDropdownProps) => {
   });
 
   return (
-    <div className={`${styles.dropdown} ${className ?? ''} position-relative`}>
+    <div ref={dropdownRef} className={`${styles.dropdown} ${className ?? ''} position-relative`}>
       <div className={`${styles.dropdownControl} d-flex align-center`}>
         <span className={styles.sorLabel}>Сортировать по:</span>
         <button
@@ -52,11 +57,15 @@ export const SortDropdown = ({ className }: SortDropdownProps) => {
           onClick={toggle}
         >
           <span className={`${styles.triggerButton}`}> {activeLabel}</span>
-          <Icon className={`${styles.triggerIcon}`} name={'shevron'} size={12} />
+          <Icon
+            className={`${styles.triggerButton} ${isOpen ? 'rotate-180' : ''}`}
+            name={'shevron'}
+            size={12}
+          />
         </button>
       </div>
       {isOpen && (
-        <div ref={dropdownRef} className={`${styles.menu} position-absolute w-100`}>
+        <div className={`${styles.menu} position-absolute w-100`}>
           {SORT_OPTIONS.map((option) => {
             const active = isSortButtonActive(option);
             const className = `${styles.option} ${active ? styles.optionActive : ''} w-100 text-uppercase`;

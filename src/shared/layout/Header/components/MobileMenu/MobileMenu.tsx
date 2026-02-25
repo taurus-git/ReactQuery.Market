@@ -16,7 +16,7 @@ export const MobileMenu = ({ data, onClose }: MobileMenuProps) => {
         {data.map(({ slug, name }: Category) => (
           <li className={`d-flex align-center`} key={slug}>
             <MenuItem onClose={onClose} to={`/products/category/${slug}`} name={name} />
-            <Icon name={'shevron'} size={10} className={`${styles.icon}`} />
+            <Icon name={'shevron'} size={10} className={`${styles.icon} rotate--90`} />
           </li>
         ))}
       </ul>
