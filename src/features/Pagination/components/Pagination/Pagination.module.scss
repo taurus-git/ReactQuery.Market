@@ -5,5 +5,6 @@
 
   @include mq(md) {
     gap: var(--spacing-3x);
+    margin: 7.5rem 0;
   }
 }

@@ -4,9 +4,12 @@ import { ProductsPaginationParams } from '@features/Pagination/types/pagination.
 
 export interface Product {
   id: number;
+  images: string[];
+  thumbnail: string;
   title: string;
+  description: string;
   price: number;
-  [key: string]: unknown;
+  discountPercentage?: number;
 }
 
 export interface ProductsResponse {

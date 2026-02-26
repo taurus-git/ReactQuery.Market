@@ -1,0 +1,13 @@
+@use "@styles/abstracts/mixins" as *;
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.1rem, 1fr));
+  grid-gap: 1.2rem;
+  justify-items: stretch;
+
+  @include mq(md) {
+    grid-template-columns: repeat(auto-fit, minmax(32.1rem, 1fr));
+    grid-gap: var(--spacing-2-5x);
+  }
+}

@@ -1,0 +1,8 @@
+@use "@styles/abstracts/mixins" as *;
+
+.productCard {
+}
+
+.priceBlock {
+  gap: var(--spacing-2x);
+}

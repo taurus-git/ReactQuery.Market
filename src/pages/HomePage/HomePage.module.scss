@@ -2,12 +2,12 @@
 
 .homeWrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "products products"
-    "pagination pagination"
-    "showMore showMore";
+    "products"
+    "pagination";
   grid-row-gap: var(--spacing-2x);
+  margin: var(--spacing-2x) 0;
 
   @include mq(md) {
     grid-template-columns: repeat(4, 1fr);
@@ -17,6 +17,7 @@
     "filter pagination pagination pagination"
     "filter showMore showMore showMore";
     grid-gap: var(--spacing-2-5x);
+    margin: var(--spacing-2-5x) 0;
   }
 }
 
@@ -40,24 +41,9 @@
 
 .productList {
   grid-area: products;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: var(--spacing-4x) var(--spacing-1x);
-
-  @include mq(md) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--spacing-5x) var(--spacing-2-5x);
-  }
-;
 }
 
 .pagination {
   grid-area: pagination;
-  justify-self: center;
-}
-
-.showMore {
-  grid-area: showMore;
   justify-self: center;
 }

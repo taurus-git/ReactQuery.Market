@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ProductGrid.module.scss';
 import { Product, ProductsResponse } from '@features/Products/types/products.types';
 import { ProductCard } from '@features/Products/components/ProductCard/ProductCard';
 
@@ -8,9 +9,10 @@ interface ProductGridProps {
 
 export const ProductGrid = ({ productsResponse }: ProductGridProps) => {
   const { products } = productsResponse;
+  console.log(products);
 
   return (
-    <ul>
+    <ul className={`${styles.productGrid}`}>
       {products.map((product: Product) => (
         <li key={product.id}>
           <ProductCard product={product} />

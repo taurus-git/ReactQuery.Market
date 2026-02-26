@@ -58,7 +58,7 @@ export const SortDropdown = ({ className }: SortDropdownProps) => {
         >
           <span className={`${styles.triggerButton}`}> {activeLabel}</span>
           <Icon
-            className={`${styles.triggerButton} ${isOpen ? 'rotate-180' : ''}`}
+            className={`${styles.triggerIcon} ${isOpen ? 'rotate-180' : ''}`}
             name={'shevron'}
             size={12}
           />
