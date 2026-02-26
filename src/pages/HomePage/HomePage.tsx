@@ -55,9 +55,6 @@ export const HomePage = () => {
                   {() => <Pagination context={paginationContext} />}
                 </QueryState>
               </div>
-              {/*<div className={`${styles.showMore}`}>
-                <ShowMore />
-              </div>*/}
             </>
           )}
         </div>

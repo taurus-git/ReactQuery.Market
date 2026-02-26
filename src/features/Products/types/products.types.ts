@@ -20,10 +20,9 @@ export interface ProductsResponse {
   limit: number;
 }
 
-export interface FetchProductsByCategoryParams {
+export interface FetchProductsByCategoryParams
+  extends ProductsPaginationParams, ProductsSortParams {
   slug: string;
-  sortBy?: string;
-  order?: string;
 }
 
 export interface FetchProductsParams

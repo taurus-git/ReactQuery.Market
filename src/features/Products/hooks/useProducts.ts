@@ -8,8 +8,8 @@ import { useEffect } from 'react';
 import { HOME_PAGE_LIMIT } from '@pages/HomePage/config/pages';
 
 export const useProducts = (params?: ProductsPaginationParams) => {
-  const queryClient = useQueryClient();
   const options = useProductsParams(params);
+  const queryClient = useQueryClient();
 
   const query = useQuery({
     queryKey: [QUERY_DOMAINS.products, options],

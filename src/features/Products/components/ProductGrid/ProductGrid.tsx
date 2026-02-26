@@ -9,7 +9,6 @@ interface ProductGridProps {
 
 export const ProductGrid = ({ productsResponse }: ProductGridProps) => {
   const { products } = productsResponse;
-  console.log(products);
 
   return (
     <ul className={`${styles.productGrid}`}>
