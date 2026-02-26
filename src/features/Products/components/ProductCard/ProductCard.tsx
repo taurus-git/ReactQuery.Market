@@ -22,17 +22,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   ];
 
   const oldPrice = discountPercentage ? (price / (1 - discountPercentage / 100)).toFixed(2) : null;
+  const discount = discountPercentage ? Math.round(discountPercentage) : null;
 
   return (
     <article className={`${styles.productCard} w-100`}>
       <Link to={`/products/${product.id}`}>
-        <div className={`${styles.imageWrapper}`}>
+        <div className={`${styles.imageWrapper} position-relative`}>
           <Image src={thumbnail} srcset={srcset} alt={title} />
 
-          {discountPercentage && (
-            <div className={`${styles.discount}`}>
-              <span className={`${styles.discountPercentage}`}>{`-${discountPercentage}%`}</span>
-              <span className={`${styles.discountText}`}>Только на сайте</span>
+          {discount && (
+            <div className={`${styles.discount} position-absolute d-flex w-100`}>
+              <span
+                className={`${styles.discountPercentage} d-flex justify-center align-center`}
+              >{`-${discount}%`}</span>
+              <span className={`${styles.discountText} d-flex justify-center align-center`}>
+                Только на сайте
+              </span>
             </div>
           )}
         </div>
@@ -42,7 +47,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <p className={`${styles.description} text-ellipsis`}>{description}</p>
 
-          <div className={`${styles.priceBlock} d-flex`}>
+          <div className={`${styles.priceBlock} d-flex align-center`}>
             {oldPrice && (
               <data value={oldPrice} className={`${styles.oldPrice}`}>
                 {oldPrice}
@@ -50,7 +55,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </data>
             )}
 
-            <data value={price} className={`${styles.price}`}>
+            <data value={price} className={`${styles.price} ${oldPrice ? styles.priceAccent : ''}`}>
               {price}
               <span className={`${styles.currency}`}>₽</span>
             </data>

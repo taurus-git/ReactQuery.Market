@@ -3,6 +3,82 @@
 .productCard {
 }
 
+.imageWrapper {
+  height: 20rem;
+  margin-bottom: var(--spacing-1x);
+
+  @include mq(md) {
+    height: 37rem;
+  }
+}
+
+.discount {
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-header);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+}
+
+.discountPercentage {
+  flex-shrink: 0;
+  width: 4rem;
+  background-color: var(--color-red);
+
+  @include mq(md) {
+    width: 5.5rem;
+  }
+}
+
+.discountText {
+  flex: 1;
+  background-color: var(--color-black);
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.discountPercentage,
+.discountText {
+  padding: .5rem;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+
+  @include mq(md) {
+    font-size: var(--font-size-base);
+  }
+}
+
+.description {
+  color: var(--color-dark-grey);
+  margin-bottom: .5rem;
+}
+
 .priceBlock {
   gap: var(--spacing-2x);
+  line-height: 1.9;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+
+  @include mq(md) {
+    gap: var(--spacing-1-5x);
+  }
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.priceAccent {
+  color: var(--color-red);
+}
+
+.currency {
+  padding-left: .5rem;
 }

@@ -16,7 +16,7 @@ export const Image = ({
   srcset,
   alt,
   lazy = true,
-  className = `d-block full-size ${styles.image}`,
+  className = `d-block ${styles.image}`,
 }: ImageProps) => {
   const { getSrcset, getImageAlt } = useImage();
   return (
