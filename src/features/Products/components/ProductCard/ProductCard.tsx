@@ -4,13 +4,17 @@ import styles from './ProductCard.module.scss';
 import { Product } from '@features/Products/types/products.types';
 import { Image } from '@shared/ui/Image/components/Image/Image';
 import { srcSetItem } from '@shared/ui/Image/types/image.types';
+import { useQueryClient } from '@tanstack/react-query';
+import { QUERY_DOMAINS } from '@shared/constants/queryDomains';
+import { fetchSingleProduct } from '@features/Products/api/productsApi';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const { title, price, discountPercentage, images, thumbnail, description } = product;
+  const { id, title, price, discountPercentage, images, thumbnail, description } = product;
+  const queryClient = useQueryClient();
 
   const mainImage = images[0] || thumbnail;
 
@@ -24,9 +28,17 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const oldPrice = discountPercentage ? (price / (1 - discountPercentage / 100)).toFixed(2) : null;
   const discount = discountPercentage ? Math.round(discountPercentage) : null;
 
+  const handleMouseEnter = () => {
+    queryClient.prefetchQuery({
+      queryKey: [QUERY_DOMAINS.products, id],
+      queryFn: () => fetchSingleProduct(id),
+      staleTime: 10 * 1000,
+    });
+  };
+
   return (
     <article className={`${styles.productCard} w-100`}>
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/${id}`} onMouseEnter={handleMouseEnter}>
         <div className={`${styles.imageWrapper} position-relative`}>
           <Image src={thumbnail} srcset={srcset} alt={title} />
 
