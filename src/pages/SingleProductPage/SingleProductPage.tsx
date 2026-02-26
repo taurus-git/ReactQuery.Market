@@ -5,8 +5,7 @@ import { useSingleProduct } from '@features/Products/hooks/useSingleProduct';
 export const SingleProductPage = () => {
   const { id } = useParams();
 
-  const productId = Number(id);
-  const { data: product, isLoading } = useSingleProduct(productId);
+  const { data: product, isLoading } = useSingleProduct(Number(id));
 
   if (isLoading) return <div>Loading...</div>;
   if (!product) return <div>Product not found</div>;

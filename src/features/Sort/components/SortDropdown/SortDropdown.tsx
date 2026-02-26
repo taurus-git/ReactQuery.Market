@@ -21,7 +21,6 @@ export const SortDropdown = ({ className }: SortDropdownProps) => {
 
   const toggle = () => {
     setIsOpen((prev) => {
-      console.log(prev);
       return !prev;
     });
   };

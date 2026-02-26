@@ -4,8 +4,8 @@ import {
   Product,
   ProductsResponse,
   FetchProductsParams,
+  FetchProductsByCategoryParams,
 } from '@features/Products/types/products.types';
-import { CategoryProductsParams } from '@features/Products/types/categories.types';
 
 export const fetchProducts = async (params: FetchProductsParams): Promise<ProductsResponse> => {
   const { category, ...queryParams } = params;
@@ -25,11 +25,19 @@ export const fetchProducts = async (params: FetchProductsParams): Promise<Produc
   }
 };
 
-export const fetchCategoryProducts = async (
-  params: CategoryProductsParams,
+export const fetchProductsByCategory = async (
+  params: FetchProductsByCategoryParams,
 ): Promise<ProductsResponse> => {
-  const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.CATEGORY}/${params.slug}`);
-  return data;
+  const { slug, ...queryParams } = params;
+  try {
+    const { data } = await apiClient.get(`${PRODUCTS_ENDPOINTS.CATEGORY}/${slug}`, {
+      params: queryParams,
+    });
+    return data;
+  } catch (error) {
+    console.error('Error fetching category products with error', error);
+    throw error;
+  }
 };
 
 export const fetchSingleProduct = async (id: number): Promise<Product> => {

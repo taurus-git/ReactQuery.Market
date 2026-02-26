@@ -1,5 +1,4 @@
 import { createBaseQueryKeys } from '@shared/lib/createBaseQueryKeys';
-import { CategoryProductsParams } from '@features/Products/types/categories.types';
 import { QUERY_DOMAINS } from '@shared/constants/queryDomains';
 
 const productsBase = createBaseQueryKeys(QUERY_DOMAINS.products);
@@ -15,8 +14,7 @@ export const singleProductKeys = {
 } as const;
 
 export const categoryProductsKeys = {
-  list: (params: CategoryProductsParams) =>
-    [QUERY_DOMAINS.categories, params.slug, QUERY_DOMAINS.products] as const,
+  list: (slug: string) => [QUERY_DOMAINS.categories, slug, QUERY_DOMAINS.products] as const,
 } as const;
 
 export const categoriesKeys = {

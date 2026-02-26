@@ -9,6 +9,7 @@ export interface Product {
   title: string;
   description: string;
   price: number;
+  category: string;
   discountPercentage?: number;
 }
 
@@ -17,6 +18,12 @@ export interface ProductsResponse {
   total: number;
   skip: number;
   limit: number;
+}
+
+export interface FetchProductsByCategoryParams {
+  slug: string;
+  sortBy?: string;
+  order?: string;
 }
 
 export interface FetchProductsParams
