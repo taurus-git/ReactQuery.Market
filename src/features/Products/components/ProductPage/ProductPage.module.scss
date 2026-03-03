@@ -1,0 +1,47 @@
+@use "@styles/abstracts/mixins" as *;
+
+.page {
+  background-color: var(--color-light-gray);
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+  'gallery'
+  'sidebar'
+  'description'
+  'specs'
+  'reviews';
+
+  @include mq(md) {
+    grid-template-columns: minmax(0, 1fr) clamp(36rem, 30vw, 42rem);
+    grid-template-areas:
+    'gallery sidebar'
+    'gallery sidebar'
+    'description sidebar'
+    'specs sidebar'
+    'reviews sidebar';
+    column-gap: var(--spacing-5x);
+  }
+}
+
+.gallery {
+  grid-area: gallery;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.description {
+  grid-area: description;
+}
+
+.specs {
+  grid-area: specs;
+}
+
+.reviews {
+  grid-area: reviews;
+}

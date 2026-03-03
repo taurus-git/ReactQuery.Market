@@ -11,10 +11,11 @@ import { PaginationContext } from '@features/Pagination/types/pagination.types';
 import { usePaginationOptions } from '@features/Pagination/hooks/usePaginationOptions';
 import { Pagination } from '@features/Pagination/components/Pagination/Pagination';
 import { useProductsParams } from '@features/Products/hooks/useProductsParams';
+import { ErrorMessage } from '@shared/ui/ErrorMessage';
 
 export const CategoryPage = () => {
   const { slug } = useParams();
-  if (!slug) return null;
+  if (!slug) return <ErrorMessage />;
 
   const { limit, skip, currentPage } = usePaginationOptions({ limit: HOME_PAGE_LIMIT });
   const params = useProductsParams({ limit, skip, currentPage });

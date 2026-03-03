@@ -61,10 +61,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <div className={`${styles.priceBlock} d-flex align-center`}>
             {oldPrice && (
-              <data value={oldPrice} className={`${styles.oldPrice}`}>
+              <span className={`${styles.oldPrice}`}>
                 {oldPrice}
                 <span className={`${styles.currency}`}>₽</span>
-              </data>
+              </span>
             )}
 
             <data value={price} className={`${styles.price} ${oldPrice ? styles.priceAccent : ''}`}>

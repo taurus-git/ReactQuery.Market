@@ -1,0 +1,16 @@
+.swiper {
+  .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--color-black);
+  }
+}
+
+.productGallery {
+  .swiper-pagination {
+    bottom: 2.7rem !important;
+  }
+}

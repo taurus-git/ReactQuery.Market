@@ -1,19 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSingleProduct } from '@features/Products/hooks/useSingleProduct';
+import { ErrorMessage } from '@shared/ui/ErrorMessage';
+import { QueryState } from '@shared/ui/QueryState';
+import { ProductPage } from '@features/Products/components/ProductPage/ProductPage';
 
 export const SingleProductPage = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+  if (!id) return <ErrorMessage />;
 
-  const { data: product, isLoading } = useSingleProduct(Number(id));
+  const query = useSingleProduct(Number(id));
 
-  if (isLoading) return <div>Loading...</div>;
-  if (!product) return <div>Product not found</div>;
-
-  return (
-    <div>
-      <h1>{product.title}</h1>
-      <p>ID from URL: {id}</p>
-    </div>
-  );
+  return <QueryState query={query}>{(product) => <ProductPage product={product} />}</QueryState>;
 };

@@ -11,6 +11,11 @@ export interface Product {
   price: number;
   category: string;
   discountPercentage?: number;
+  dimensions?: string[];
+  rating?: number;
+  reviews?: string[];
+  sku?: string;
+  weight?: number;
 }
 
 export interface ProductsResponse {

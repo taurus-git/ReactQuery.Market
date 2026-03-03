@@ -12,11 +12,11 @@ interface QueryStateProps<T> {
 export const QueryState = <T,>({ query, children, skeleton }: QueryStateProps<T>) => {
   const { data, isLoading, isError } = query;
 
+  if (isLoading && !data) return <>{skeleton || <Loader />}</>;
+
   if (isError && !data) return <ErrorMessage />;
 
   if (data) return <>{children(data)}</>;
-
-  if (isLoading) return <>{skeleton || <Loader />}</>;
 
   return null;
 };
