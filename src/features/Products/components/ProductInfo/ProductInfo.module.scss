@@ -1,0 +1,39 @@
+@use "@styles/abstracts/mixins" as *;
+
+.sku {
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--spacing-2x);
+}
+
+.rating {
+  gap: var(--spacing-1x);
+  margin-bottom: var(--spacing-1x);
+}
+
+.ratingValue {
+  flex-grow: 1;
+  gap: var(--spacing-1x);
+
+  @include mq(md) {
+    gap: var(--spacing-2x);
+  }
+}
+
+.starFilled {
+  color: var(--color-red);
+}
+
+.reviewCount {
+  color: var(--color-dark-grey);
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include underline();
+  }
+}
+
+.addToFavorite {
+  flex-shrink: 0;
+}

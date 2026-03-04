@@ -14,20 +14,7 @@ interface ProductPageProps {
 }
 
 export const ProductPage = ({ product }: ProductPageProps) => {
-  const { dimensions, discountPercentage, id, images, price, rating, reviews, sku, title, weight } =
-    product;
-  console.log(
-    dimensions,
-    discountPercentage,
-    id,
-    images,
-    price,
-    rating,
-    reviews,
-    sku,
-    title,
-    weight,
-  );
+  const { images } = product;
   return (
     <article className={`${styles.page}`}>
       <Container>
