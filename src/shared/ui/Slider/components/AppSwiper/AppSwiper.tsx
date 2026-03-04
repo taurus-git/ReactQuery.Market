@@ -5,6 +5,8 @@ import type { SwiperOptions } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/thumbs';
+import 'swiper/css/free-mode';
 
 interface AppSwiperProps {
   children: ReactNode[];

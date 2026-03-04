@@ -1,5 +1,5 @@
 import type { SwiperOptions } from 'swiper/types';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation, Thumbs, FreeMode } from 'swiper/modules';
 
 export const mobileConfig: SwiperOptions = {
   slidesPerView: 1,
@@ -9,16 +9,21 @@ export const mobileConfig: SwiperOptions = {
   pagination: {
     clickable: true,
   },
-  breakpoints: {
-    768: { slidesPerView: 3, spaceBetween: 25 },
-  },
 };
 
-export const desktopConfig: SwiperOptions = {
-  slidesPerView: 1.05,
+export const desktopMainConfig: SwiperOptions = {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  loop: false,
+  modules: [Navigation, Thumbs],
+  navigation: true,
+  watchSlidesProgress: true,
+};
+
+export const desktopThumbsConfig: SwiperOptions = {
+  slidesPerView: 4,
+  direction: 'vertical',
   spaceBetween: 10,
-  loop: true,
-  breakpoints: {
-    768: { slidesPerView: 3, spaceBetween: 25 },
-  },
+  watchSlidesProgress: true,
+  modules: [Thumbs, FreeMode],
 };

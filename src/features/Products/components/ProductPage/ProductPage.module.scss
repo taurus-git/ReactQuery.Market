@@ -2,6 +2,11 @@
 
 .page {
   background-color: var(--color-light-gray);
+
+  @include mq(md) {
+    margin-top: var(--spacing-4x);
+    background-color: unset;
+  }
 }
 
 .overview {
@@ -14,7 +19,7 @@
   'specs'
   'reviews';
 
-  @include mq(md) {
+  @include mq(lg) {
     grid-template-columns: minmax(0, 1fr) clamp(36rem, 30vw, 42rem);
     grid-template-areas:
     'gallery sidebar'

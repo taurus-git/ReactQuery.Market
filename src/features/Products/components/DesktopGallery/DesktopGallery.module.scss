@@ -1,0 +1,28 @@
+.gallery {
+  display: grid;
+  grid-template-columns: 11.8rem 1fr;
+  grid-gap: 1rem;
+}
+
+.thumbs {
+  aspect-ratio: 1 / 6;
+}
+
+.thumbsSlide {
+  height: 11.8rem !important;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  padding: var(--spacing-2x) var(--spacing-1-5x);
+}
+
+.slider {
+  aspect-ratio: 1 / 1;
+}
+
+.mainSlide {
+  background-color: var(--color-white);
+
+  img {
+    object-fit: contain;
+  }
+}
