@@ -7,6 +7,7 @@ import { srcSetItem } from '@shared/ui/Image/types/image.types';
 import { useQueryClient } from '@tanstack/react-query';
 import { QUERY_DOMAINS } from '@shared/constants/queryDomains';
 import { fetchSingleProduct } from '@features/Products/api/productsApi';
+import { buildPrice } from '@features/Products/utils/productUtils';
 
 interface ProductCardProps {
   product: Product;
@@ -25,8 +26,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     },
   ];
 
-  const oldPrice = discountPercentage ? (price / (1 - discountPercentage / 100)).toFixed(2) : null;
-  const discount = discountPercentage ? Math.round(discountPercentage) : null;
+  const pricing = buildPrice(price, discountPercentage);
 
   const handleMouseEnter = () => {
     queryClient.prefetchQuery({
@@ -42,11 +42,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className={`${styles.imageWrapper} position-relative`}>
           <Image src={thumbnail} srcset={srcset} alt={title} />
 
-          {discount && (
+          {discountPercentage && (
             <div className={`${styles.discount} position-absolute d-flex w-100`}>
               <span
                 className={`${styles.discountPercentage} d-flex justify-center align-center`}
-              >{`-${discount}%`}</span>
+              >{`-${pricing.discount}%`}</span>
               <span className={`${styles.discountText} d-flex justify-center align-center`}>
                 Только на сайте
               </span>
@@ -60,16 +60,18 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <p className={`${styles.description} text-ellipsis`}>{description}</p>
 
           <div className={`${styles.priceBlock} d-flex align-center`}>
-            {oldPrice && (
+            {discountPercentage && (
               <span className={`${styles.oldPrice}`}>
-                {oldPrice}
+                {pricing.old}
                 <span className={`${styles.currency}`}>₽</span>
               </span>
             )}
 
-            <data value={price} className={`${styles.price} ${oldPrice ? styles.priceAccent : ''}`}>
-              {price}
-              <span className={`${styles.currency}`}>₽</span>
+            <data
+              value={pricing.current}
+              className={`${styles.price} ${pricing.old ? styles.priceAccent : ''}`}
+            >
+              {pricing.current} <span className={`${styles.currency}`}>₽</span>
             </data>
           </div>
         </div>

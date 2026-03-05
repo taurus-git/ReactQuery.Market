@@ -77,6 +77,11 @@
 
 .oldPrice {
   text-decoration: line-through;
+  white-space: nowrap;
+}
+
+.price {
+  white-space: nowrap;
 }
 
 .priceAccent {

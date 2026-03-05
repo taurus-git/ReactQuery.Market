@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './ProductInfo.module.scss';
 import { Product } from '@features/Products/types/products.types';
 import { Icon } from '@shared/ui/Icon/Icon';
+import { buildPrice } from '@features/Products/utils/productUtils';
 
 interface ProductInfoProps {
   product: Product;
@@ -27,6 +28,7 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
 
   const stars: number[] = [1, 2, 3, 4, 5];
   const roundedRating = Math.round(rating ?? 0);
+  const pricing = buildPrice(price, discountPercentage);
 
   return (
     <section className={`${className}`}>
@@ -61,17 +63,40 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
           </button>
         </div>
 
-        <h1 className={`${styles.name}`}>{title}</h1>
+        <h1 className={`${styles.title}`}>{title}</h1>
       </header>
 
-      <section className={`${styles.pricing}`}>
-        <p>
-          <span className={`${styles.discount}`}>{`discountPercentage`}</span>
-        </p>
-        <p>
-          <del className={`${styles.oldPrice}`}>123</del>
-          <span className={`${styles.price}`}></span>
-        </p>
+      <section className={`${styles.pricing} d-flex align-center flex-wrap`}>
+        {discountPercentage && (
+          <span
+            className={`${styles.discount} d-flex justify-center align-center`}
+          >{`-${pricing.discount}%`}</span>
+        )}
+        <data
+          value={price}
+          className={`${styles.price} ${discountPercentage ? styles.priceAccent : ''}`}
+        >
+          {pricing.current} <span className={`${styles.currency}`}>₽</span>
+        </data>
+        {discountPercentage && (
+          <>
+            <span className={`${styles.oldPrice} ${styles.oldPriceDesktop}`}>
+              {pricing.old}
+              <span className={`${styles.currency}`}>₽</span>
+            </span>
+          </>
+        )}
+        <div className={`${styles.pricingAdditional} d-flex flex-column`}>
+          {discountPercentage && (
+            <>
+              <span className={`${styles.oldPrice} ${styles.oldPriceMobile}`}>
+                {pricing.old}
+                <span className={`${styles.currency}`}>₽</span>
+              </span>
+            </>
+          )}
+          <button className={`${styles.isLowerPrice}`}>Нашли дешевле?</button>
+        </div>
       </section>
 
       <section className={`${styles.purchaseActions}`}>
