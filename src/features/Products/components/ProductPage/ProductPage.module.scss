@@ -35,14 +35,20 @@
 
 .sidebar {
   grid-area: sidebar;
+  margin-bottom: var(--spacing-4x);
+  @include mq(lg) {
+    margin-bottom: 0;
+  }
 }
 
 .description {
   grid-area: description;
+  margin-bottom: var(--spacing-4x);
 }
 
 .specs {
   grid-area: specs;
+  margin-bottom: var(--spacing-4x);
 }
 
 .reviews {

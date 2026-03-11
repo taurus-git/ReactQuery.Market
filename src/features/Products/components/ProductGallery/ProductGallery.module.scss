@@ -1,0 +1,7 @@
+@use "@styles/abstracts/mixins" as *;
+
+.gallery {
+  @include mq(lg) {
+    margin-bottom: 9rem;
+  }
+}

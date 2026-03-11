@@ -139,7 +139,10 @@
 .getInStore {
   text-transform: uppercase;
 
+  @include btn-size(var(--spacing-1x), var(--spacing-1x), 6rem, 100%);
+
   @include mq(md) {
     font-size: var(--font-size-lg);
+    @include btn-size(var(--spacing-1x), var(--spacing-1x), 7rem, 100%);
   }
 }

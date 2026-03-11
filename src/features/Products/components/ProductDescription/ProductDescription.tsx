@@ -1,17 +1,16 @@
 import React from 'react';
-import { Product } from '@features/Products/types/products.types';
+import styles from './ProductDescription.module.scss';
 
 interface ProductDescriptionProps {
-  product: Product;
+  description: string;
   className?: string;
 }
 
-export const ProductDescription = ({ product, className }: ProductDescriptionProps) => {
-  console.log(product);
+export const ProductDescription = ({ description, className }: ProductDescriptionProps) => {
   return (
     <section className={`${className}`}>
-      <h2>Description</h2>
-      <p>Product description</p>
+      <h2 className={styles.title}>Характеристики</h2>
+      <p className={styles.description}>{description}</p>
     </section>
   );
 };

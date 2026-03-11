@@ -2,6 +2,8 @@ import { ProductsSortParams } from '@features/Sort/types/sort.types';
 import { ProductsCategoryParams } from '@features/Products/types/categories.types';
 import { ProductsPaginationParams } from '@features/Pagination/types/pagination.types';
 
+export type Dimensions = Record<string, number | string>;
+
 export interface Product {
   id: number;
   images: string[];
@@ -11,7 +13,7 @@ export interface Product {
   price: number;
   category: string;
   discountPercentage?: number;
-  dimensions?: string[];
+  dimensions?: Dimensions;
   rating?: number;
   reviews?: string[];
   sku?: string;

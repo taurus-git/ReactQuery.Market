@@ -1,0 +1,21 @@
+.specs {
+  width: 100%;
+  max-width: 42rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-gap: var(--spacing-1-5x);
+  line-height: 2.15;
+}
+
+dt {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+dd {
+  text-align: right;
+  font-weight: var(--font-weight-bold);
+}

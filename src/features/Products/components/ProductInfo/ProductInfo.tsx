@@ -11,21 +11,7 @@ interface ProductInfoProps {
 }
 
 export const ProductInfo = ({ product, className }: ProductInfoProps) => {
-  const { dimensions, discountPercentage, id, images, price, rating, reviews, sku, title, weight } =
-    product;
-  console.log(
-    dimensions,
-    discountPercentage,
-    id,
-    images,
-    price,
-    rating,
-    reviews,
-    sku,
-    title,
-    weight,
-  );
-
+  const { discountPercentage, price, rating, reviews, sku, title } = product;
   const stars: number[] = [1, 2, 3, 4, 5];
   const roundedRating = Math.round(rating ?? 0);
   const pricing = buildPrice(price, discountPercentage);
@@ -100,10 +86,10 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
       </section>
 
       <section className={`${styles.purchaseActions}`}>
-        <button className={`btn btn--size-lg btn--font-md btn--cta-dark ${styles.addToCart}`}>
+        <button className={`btn btn--font-md btn--cta-dark ${styles.addToCart}`}>
           Добавить в корзину
         </button>
-        <button className={`btn btn--size-lg btn--font-md btn--cta-light ${styles.getInStore}`}>
+        <button className={`btn btn--font-md btn--cta-light ${styles.getInStore}`}>
           Забрать в магазине
         </button>
       </section>
