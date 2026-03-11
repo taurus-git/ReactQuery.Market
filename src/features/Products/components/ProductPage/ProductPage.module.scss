@@ -1,8 +1,6 @@
 @use "@styles/abstracts/mixins" as *;
 
 .page {
-  background-color: var(--color-light-gray);
-
   @include mq(md) {
     margin-top: var(--spacing-4x);
     background-color: unset;

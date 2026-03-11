@@ -1,0 +1,32 @@
+.delivery {
+  gap: var(--spacing-1-5x);
+  line-height: 1.4;
+}
+
+.time,
+.divider,
+.price {
+  font-weight: var(--font-weight-bold);
+}
+
+.image {
+  flex-shrink: 0;
+  background-color: var(--color-light-gray);
+  width: 7.3rem;
+  height: 7rem;
+  border-radius: .4rem;
+}
+
+.divider {
+  margin: 0 .5rem;
+}
+
+.priceFree {
+  color: var(--color-green);
+}
+
+.priceCrossed {
+  color: var(--color-dark-grey);
+  text-decoration: line-through;
+}
+

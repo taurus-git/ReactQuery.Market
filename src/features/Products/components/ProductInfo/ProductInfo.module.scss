@@ -1,10 +1,20 @@
 @use "@styles/abstracts/mixins" as *;
 
+.info {
+  margin-bottom: var(--spacing-4x);
+
+  @include mq(lg) {
+    margin-bottom: var(--spacing-5x);
+  }
+}
+
+/*sku*/
 .sku {
   font-size: var(--font-size-xs);
   margin-bottom: var(--spacing-2x);
 }
 
+/*rating*/
 .rating {
   gap: var(--spacing-1x);
   margin-bottom: var(--spacing-1x);
@@ -38,6 +48,7 @@
   flex-shrink: 0;
 }
 
+/*title*/
 .title {
   font-size: var(--font-size-4xl);
   line-height: 1.67;
@@ -48,8 +59,10 @@
   }
 }
 
+/*Pricing*/
 .pricing {
   gap: var(--spacing-1-5x);
+  margin-bottom: var(--spacing-2x);
 }
 
 .discount {
@@ -66,6 +79,10 @@
   font-size: 3.2rem;
   white-space: nowrap;
   font-weight: var(--font-weight-bold);
+
+  @include mq(md) {
+
+  }
 }
 
 .priceAccent {
@@ -88,13 +105,41 @@
   display: none;
 
   @include mq(md) {
+    align-self: flex-start;
     display: inline-block;
   }
 }
 
 .pricingAdditional {
-
+  @include mq(md) {
+    align-self: flex-end;
+  }
 }
 
 .isLowerPrice {
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include underline(1px, var(--color-black), -1rem);
+  }
+
+  @include mq(md) {
+    margin-top: auto;
+    margin-bottom: .7rem;
+  }
+}
+
+/*purchase actions*/
+.addToCart {
+  margin-bottom: var(--spacing-1x);
+}
+
+.addToCart,
+.getInStore {
+  text-transform: uppercase;
+
+  @include mq(md) {
+    font-size: var(--font-size-lg);
+  }
 }

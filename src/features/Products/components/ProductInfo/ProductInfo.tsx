@@ -31,7 +31,7 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
   const pricing = buildPrice(price, discountPercentage);
 
   return (
-    <section className={`${className}`}>
+    <section className={`${className} ${styles.info}`}>
       <header>
         <p className={`${styles.sku}`}>
           <span>Артикул производителя: {sku}</span>
@@ -95,13 +95,17 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
               </span>
             </>
           )}
-          <button className={`${styles.isLowerPrice}`}>Нашли дешевле?</button>
+          <button className={`${styles.isLowerPrice} position-relative`}>Нашли дешевле?</button>
         </div>
       </section>
 
       <section className={`${styles.purchaseActions}`}>
-        <button className={`${styles.addToCart}`}>Add to Cart</button>
-        <button className={`${styles.store}`}>Pickup in Store</button>
+        <button className={`btn btn--size-lg btn--font-md btn--cta-dark ${styles.addToCart}`}>
+          Добавить в корзину
+        </button>
+        <button className={`btn btn--size-lg btn--font-md btn--cta-light ${styles.getInStore}`}>
+          Забрать в магазине
+        </button>
       </section>
     </section>
   );

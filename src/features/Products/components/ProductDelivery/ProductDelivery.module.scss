@@ -1,0 +1,18 @@
+@use "@styles/abstracts/mixins" as *;
+
+.deliveryCity {
+  margin-bottom: var(--spacing-2-5x);
+}
+
+.deliveryContainer {
+  gap: var(--spacing-1x);
+}
+
+.underline {
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include underline();
+  }
+}
