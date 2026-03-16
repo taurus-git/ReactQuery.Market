@@ -12,12 +12,10 @@ export const ProductSpecs = ({ dimensions, className }: ProductSpecsProps) => {
 
   const entries = Object.entries(dimensions);
 
-  console.log(entries);
-
   return (
     <section className={`${className} ${styles.specs}`}>
       {entries.map(([key, value]) => (
-        <dl>
+        <dl key={key + value}>
           <dt>{key}</dt>
           <dd>{value} cm</dd>
         </dl>

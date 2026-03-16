@@ -14,7 +14,7 @@ interface ProductPageProps {
 }
 
 export const ProductPage = ({ product }: ProductPageProps) => {
-  const { images, description } = product;
+  const { images, description, reviews, rating } = product;
   return (
     <article className={`${styles.page}`}>
       <Container>
@@ -26,7 +26,9 @@ export const ProductPage = ({ product }: ProductPageProps) => {
           </aside>
           <ProductDescription description={description} className={`${styles.description}`} />
           <ProductSpecs dimensions={product.dimensions} className={`${styles.specs}`} />
-          <ProductReviews product={product} className={`${styles.reviews}`} />
+          {reviews && (
+            <ProductReviews reviews={reviews} rating={rating} className={`${styles.reviews}`} />
+          )}
         </section>
       </Container>
     </article>

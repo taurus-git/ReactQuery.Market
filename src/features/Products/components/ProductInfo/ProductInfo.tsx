@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './ProductInfo.module.scss';
 import { Product } from '@features/Products/types/products.types';
 import { Icon } from '@shared/ui/Icon/Icon';
 import { buildPrice } from '@features/Products/utils/productUtils';
+import { StarRating } from '@features/Products/components/StarRating/StarRating';
 
 interface ProductInfoProps {
   product: Product;
@@ -12,8 +12,6 @@ interface ProductInfoProps {
 
 export const ProductInfo = ({ product, className }: ProductInfoProps) => {
   const { discountPercentage, price, rating, reviews, sku, title } = product;
-  const stars: number[] = [1, 2, 3, 4, 5];
-  const roundedRating = Math.round(rating ?? 0);
   const pricing = buildPrice(price, discountPercentage);
 
   return (
@@ -25,24 +23,12 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
 
         <div className={`${styles.rating} d-flex align-center`}>
           <span className={`${styles.ratingValue} d-flex align-center`}>
-            {stars.map((star: number) => {
-              const filled = star <= roundedRating;
-
-              return (
-                <button key={star}>
-                  <Icon
-                    name={filled ? 'star_filled' : 'star_border'}
-                    className={`${filled ? styles.starFilled : ''}`}
-                  />
-                </button>
-              );
-            })}
-
-            <Link to="#reviews">
+            {rating && <StarRating rating={rating} />}
+            <a href="#reviews">
               <span className={`${styles.reviewCount} position-relative`}>
                 {reviews && reviews.length} отзыва
               </span>
-            </Link>
+            </a>
           </span>
           <button className={`${styles.addToFavorite}`}>
             <Icon name={'star_round'} size={30} />

@@ -1,28 +1,38 @@
 import React from 'react';
-import { Product } from '@features/Products/types/products.types';
-import styles from '@features/Products/components/ProductPage/ProductPage.module.scss';
+//import styles from '@features/Products/components/ProductPage/ProductPage.module.scss';
+import { StarRating } from '@features/Products/components/StarRating/StarRating';
+import { ReviewForm } from '@features/Products/components/ReviewForm/ReviewForm';
+import { ReviewItem } from '@features/Products/components/ReviewItem/ReviewItem';
+import { Review } from '@features/Products/types/products.types';
 
 interface ProductReviewsProps {
-  product: Product;
+  reviews: Review[];
+  rating?: number;
   className?: string;
 }
 
-export const ProductReviews = ({ product, className }: ProductReviewsProps) => {
-  console.log(product);
+export const ProductReviews = ({ reviews, rating, className }: ProductReviewsProps) => {
   return (
-    <section className={`${className}`} id={'#reviews'}>
+    <section id="reviews" className={`${className}`}>
       <h2>
-        Reviews <span>123</span>
+        Отзывы о товаре <span>{reviews.length}</span>
       </h2>
 
-      <article className={`${styles.review}`}>
-        <header>
-          <div className={`${styles.reviewRating} stars`}>*****</div>
-          <strong className={`${styles.reviewAuthor}`}>John dou</strong>
-          <time dateTime="2025-02-20">feb 20, 2025</time>
-        </header>
-        <p>Great product!</p>
-      </article>
+      {rating && (
+        <>
+          <p>Средняя оценка</p>
+          <div>{rating.toFixed(1)}</div>
+          <StarRating rating={rating} />
+        </>
+      )}
+
+      <div>
+        <ReviewForm />
+      </div>
+
+      {reviews.map((r) => (
+        <ReviewItem review={r} />
+      ))}
     </section>
   );
 };
