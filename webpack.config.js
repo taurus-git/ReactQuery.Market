@@ -16,7 +16,7 @@ module.exports = (env, argv) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     output: {
       clean: true,
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'build'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
       publicPath: '/',
     },
