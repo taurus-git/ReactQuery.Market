@@ -4,6 +4,14 @@ import { ProductsPaginationParams } from '@features/Pagination/types/pagination.
 
 export type Dimensions = Record<string, number | string>;
 
+export interface Review {
+  rating: number;
+  comment: string;
+  date: string;
+  reviewerName: string;
+  reviewerEmail: string;
+}
+
 export interface Product {
   id: number;
   images: string[];
@@ -15,7 +23,7 @@ export interface Product {
   discountPercentage?: number;
   dimensions?: Dimensions;
   rating?: number;
-  reviews?: string[];
+  reviews?: Review[];
   sku?: string;
   weight?: number;
 }

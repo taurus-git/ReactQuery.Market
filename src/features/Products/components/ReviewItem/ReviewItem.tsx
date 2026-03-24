@@ -8,8 +8,6 @@ interface ReviewItemProps {
 }
 
 export const ReviewItem = ({ review }: ReviewItemProps) => {
-  console.log(review);
-
   const { comment, rating, date, reviewerName } = review;
   const d = new Date(date);
   const options = { day: 'numeric', month: 'long' } as const;
@@ -19,14 +17,14 @@ export const ReviewItem = ({ review }: ReviewItemProps) => {
 
   return (
     <article className={`${styles.review}`}>
-      <header>
-        <div className={`${styles.reviewRating} stars`}>
-          <StarRating rating={rating} />
-        </div>
-        <strong className={`${styles.reviewAuthor}`}>{reviewerName}</strong>
-        <time dateTime={date}>{formatted}</time>
-      </header>
-      <p>{comment}</p>
+      <div className={`${styles.rating} d-flex`}>
+        <StarRating rating={rating} />
+      </div>
+      <time className={`${styles.date}`} dateTime={date}>
+        {formatted}
+      </time>
+      <p className={`${styles.author}`}>{reviewerName}</p>
+      <p className={`${styles.text}`}>{comment}</p>
     </article>
   );
 };

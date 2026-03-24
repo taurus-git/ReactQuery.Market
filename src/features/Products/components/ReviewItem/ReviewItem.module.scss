@@ -1,0 +1,52 @@
+@use "@styles/abstracts/mixins" as *;
+
+.review {
+  display: grid;
+  grid-template-columns: minmax(15rem, auto) 1fr;
+  grid-template-areas:
+  'rating date'
+  'author author'
+  'text text';
+  grid-gap: var(--spacing-1x);
+  margin-bottom: var(--spacing-4x);
+  line-height: 2.14;
+
+  @include mq(lg) {
+    grid-template-areas:
+    'rating author'
+    'date text';
+    column-gap: 7rem;
+    row-gap: var(--spacing-2x);
+    line-height: 1.5;
+  }
+}
+
+.rating {
+  grid-area: rating;
+  gap: var(--spacing-1x);
+}
+
+.date {
+  grid-area: date;
+  align-self: center;
+  justify-self: end;
+  color: var(--color-dark-grey);
+
+  @include mq(lg) {
+    justify-self: start;
+  }
+}
+
+.author {
+  grid-area: author;
+  font-weight: var(--font-weight-bold);
+
+  @include mq(lg) {
+    align-self: end;
+    margin-bottom: -.5rem;
+  }
+}
+
+.text {
+  grid-area: text;
+}

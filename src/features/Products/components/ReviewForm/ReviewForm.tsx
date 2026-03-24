@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './ReviewForm.module.scss';
 import { StarRating } from '@features/Products/components/StarRating/StarRating';
 
 export const ReviewForm = () => {
@@ -24,10 +25,21 @@ export const ReviewForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <textarea value={text} onChange={(e) => setText(e.target.value)} />
-      <StarRating rating={rating} onChange={setRating} />
-      <button type="submit" className={'btn btn--size-md btn--font-md btn--dark'}>
+    <form onSubmit={handleSubmit} className={`${styles.form} d-flex justify-center align-center`}>
+      <div className={`${styles.textareaWrapper} w-100`}>
+        <textarea
+          className={`${styles.text} w-100`}
+          name="review-text"
+          value={text}
+          placeholder="Оставить отзыв"
+          rows={1}
+          onChange={(e) => setText(e.target.value)}
+        />
+      </div>
+      <div className={`${styles.stars} d-flex justify-center align-center`}>
+        <StarRating rating={rating} onChange={setRating} />
+      </div>
+      <button type="submit" className={`${styles.submit} btn  btn--font-md btn--dark`}>
         Отправить
       </button>
     </form>

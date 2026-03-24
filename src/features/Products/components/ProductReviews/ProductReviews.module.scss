@@ -1,0 +1,55 @@
+@use '@styles/abstracts/mixins' as *;
+
+.reviewsWrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+  'title'
+  'rating'
+  'form'
+  'reviews';
+
+  @include mq(lg) {
+    grid-template-columns: minmax(0, 1fr) clamp(36rem, 30vw, 42rem);
+    grid-template-areas:
+    'title title'
+    'form rating'
+    'reviews rating';
+    column-gap: var(--spacing-5x);
+  }
+}
+
+.title {
+  grid-area: title;
+  margin-bottom: 3.5rem;
+}
+
+.heading {
+  font-size: 2.1rem;
+  line-height: 1.67;
+}
+
+.reviewsCount {
+  margin-left: var(--spacing-1-5x);
+  color: var(--color-dark-grey);
+}
+
+.rating {
+  grid-area: rating;
+  margin-bottom: 4rem;
+
+  @include mq(lg) {
+    margin-bottom: 1rem;
+    justify-self: center;
+  }
+}
+
+.ratingText {
+  margin-bottom: .5rem;
+}
+
+.ratingValue {
+  margin-bottom: var(--spacing-1x);
+  font-size: 8rem;
+  line-height: 1.2;
+}

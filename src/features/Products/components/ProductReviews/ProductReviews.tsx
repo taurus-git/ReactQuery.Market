@@ -1,5 +1,5 @@
 import React from 'react';
-//import styles from '@features/Products/components/ProductPage/ProductPage.module.scss';
+import styles from './ProductReviews.module.scss';
 import { StarRating } from '@features/Products/components/StarRating/StarRating';
 import { ReviewForm } from '@features/Products/components/ReviewForm/ReviewForm';
 import { ReviewItem } from '@features/Products/components/ReviewItem/ReviewItem';
@@ -13,26 +13,31 @@ interface ProductReviewsProps {
 
 export const ProductReviews = ({ reviews, rating, className }: ProductReviewsProps) => {
   return (
-    <section id="reviews" className={`${className}`}>
-      <h2>
-        Отзывы о товаре <span>{reviews.length}</span>
-      </h2>
+    <section id="reviews" className={`${className} ${styles.reviewsWrapper}`}>
+      <div className={`${styles.title}`}>
+        <h2 className={`${styles.heading}`}>
+          Отзывы о товаре
+          <span className={`${styles.reviewsCount}`}>{reviews.length}</span>
+        </h2>
+      </div>
 
       {rating && (
-        <>
-          <p>Средняя оценка</p>
-          <div>{rating.toFixed(1)}</div>
+        <div className={`${styles.rating}`}>
+          <p className={`${styles.ratingText}`}>Средняя оценка</p>
+          <div className={`${styles.ratingValue}`}>{rating.toFixed(1)}</div>
           <StarRating rating={rating} />
-        </>
+        </div>
       )}
 
-      <div>
+      <div className={`${styles.form}`}>
         <ReviewForm />
       </div>
 
-      {reviews.map((r) => (
-        <ReviewItem review={r} />
-      ))}
+      <div className={`${styles.reviews}`}>
+        {reviews.map((r) => (
+          <ReviewItem review={r} />
+        ))}
+      </div>
     </section>
   );
 };
