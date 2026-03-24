@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# 📦 Learning Project: React + React Query + Webpack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Overview
 
-## Available Scripts
+This project is a pet/learning application built to consolidate and apply knowledge gained from courses on modern
+frontend tooling and architecture.
 
-In the project directory, you can run:
+The main focus was not on building a production-ready product, but on practicing real-world usage of key technologies
+such as **React Query**, **Webpack**, and **CSS Grid**.
 
-### `npm start`
+> ⚠️ Note: The UI design and API domain do not match. The design was selected because it looked visually interesting,
+> while the API was chosen for its simplicity and convenience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🎯 Goals
 
-### `npm test`
+The primary goal of this project was to reinforce practical skills in:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React Query (data fetching, caching, prefetching)
+* Webpack (custom configuration and bundling)
+* CSS Grid (layout structuring)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧩 Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Product listing with pagination
+* Prefetching of the next page for smoother UX
+* Fetching product details on hover using React Query
+* Client-side routing with a slightly more advanced setup using React Router
+* Reusable UI elements based on a simple design system
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* **React**
+* **React Query**
+* **Webpack**
+* **SCSS (Sass)**
+* **React Router**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🎨 Design & Data Sources
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* **Design (Figma templates)**
+  https://rejump.ru/25-gotovyh-maketov-sajtov-v-figma-dlya-bystrogo-zapuska-vashego-proekta/
 
-## Learn More
+* **API (mock data)**
+  https://dummyjson.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📚 Additional Concepts Explored
+
+During the development process, the following tools and concepts were also explored:
+
+* ESLint & Prettier setup for code quality
+* Path aliases for cleaner imports
+* Advanced usage of React Router
+* React Query optimizations:
+
+    * Data fetching on hover
+    * Pagination preloading
+* SCSS improvements:
+
+    * First-time use of **mixins**
+    * Creation of a small **design system** (mixins + utility classes) for button
+
+---
+
+## ⚠️ Limitations
+
+Due to time constraints, several ideas and improvements were not implemented. The project is intentionally incomplete
+and serves primarily as a learning exercise rather than a polished product.
+
+---
+
+## 📌 Summary
+
+This project represents a hands-on consolidation of frontend development skills, with a focus on data fetching
+strategies, build tooling, and scalable styling approaches.

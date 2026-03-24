@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmarket=self.webpackChunkmarket||[]).push([[810],{6810:(e,s,a)=>{a.r(s),a.d(s,{default:()=>t});var r=a(4848);const t=()=>(0,r.jsx)("div",{children:"ProductsPage"})}}]);
+//# sourceMappingURL=810.5aefc0e33452d1ee4e15.js.map
