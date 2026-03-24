@@ -16,9 +16,9 @@ module.exports = (env, argv) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     output: {
       clean: true,
-      path: path.resolve(__dirname, 'src/dist'),
+      path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
-      publicPath: isProduction ? './' : '/',
+      publicPath: '/',
     },
     module: {
       rules: [
@@ -164,7 +164,7 @@ module.exports = (env, argv) => {
     devServer: {
       historyApiFallback: true,
       static: {
-        directory: path.resolve(__dirname, 'scr/dist'),
+        directory: path.resolve(__dirname, 'dist'),
       },
       port: 3000,
       hot: true,
